@@ -52,7 +52,7 @@ const UI_TEXT = {
   },
   en: {
     htmlLang: "en",
-    title: "Global Rates",
+    title: "Interest Rates",
     refresh: "Refresh",
     loading: "Loading rates...",
     updatePrefix: "Updated",
@@ -133,6 +133,35 @@ const VALUE_TRANSLATIONS = {
   }
 };
 
+const SOURCE_NAME_TRANSLATIONS = {
+  en: {
+    "券商 margin 費率表": "Broker margin schedule",
+    "台灣券商融資費率": "Taiwan broker financing reference",
+    "台灣銀行房貸頁面": "Taiwan bank mortgage page",
+    "台灣銀行信貸頁面": "Taiwan bank personal loan page",
+    "荷蘭房貸比較來源": "Dutch mortgage comparison source",
+    "ABN AMRO，使用者人工確認": "ABN AMRO, manually confirmed by user",
+    "Freddie Mac / 美國房貸市場來源": "Freddie Mac / US mortgage market source",
+    "Federal Reserve 消費信貸資料": "Federal Reserve consumer credit data"
+  }
+};
+
+const EN_BROKER_BULLETS = {
+  us: [
+    "IBKR Lite: benchmark + 2.5%",
+    "IBKR Pro: benchmark + 1.5% from",
+    "Also check: Interactive Brokers, Charles Schwab, Fidelity"
+  ],
+  euro_nl: [
+    "EUR margin usually uses benchmark + spread",
+    "Also check: Interactive Brokers, DEGIRO, Saxo Bank"
+  ],
+  tw: [
+    "Usually quoted by bank or broker program",
+    "Also check: Yuanta, KGI, Cathay, Fubon, SinoPac"
+  ]
+};
+
 let currentLanguage = "zh";
 
 function textFor(lang = currentLanguage) {
@@ -195,6 +224,10 @@ function localizeRegion(row, lang = currentLanguage) {
 
 function localizeDisplay(value, lang = currentLanguage) {
   return VALUE_TRANSLATIONS[lang]?.[value] || value;
+}
+
+function localizeSourceName(value, lang = currentLanguage) {
+  return SOURCE_NAME_TRANSLATIONS[lang]?.[value] || value;
 }
 
 function representativeRate(cell) {
@@ -298,12 +331,16 @@ function sourceHtml(cell, lang = currentLanguage) {
     return `<span class="cell-meta">${escapeHtml(text.noSource)}</span>`;
   }
 
-  const sourceName = escapeHtml(cell.sourceName || text.sourcePrefix);
+  const sourceName = escapeHtml(localizeSourceName(cell.sourceName || text.sourcePrefix, lang));
   const sourceUrl = escapeHtml(cell.sourceUrl);
   return `<a class="cell-meta" href="${sourceUrl}" target="_blank" rel="noreferrer">${escapeHtml(text.sourcePrefix)}${separator}${sourceName}</a>`;
 }
 
-function noteHtml(cell) {
+function noteHtml(cell, lang = currentLanguage) {
+  if (lang === "en") {
+    return "";
+  }
+
   if (!cell.notes) {
     return "";
   }
@@ -327,7 +364,7 @@ function cellToHtml(cell, productId, lang = currentLanguage) {
         </div>
         ${sourceHtml(cell, lang)}
         <div class="cell-meta">${escapeHtml(text.updatedPrefix)}${separator}${escapeHtml(formatUpdatedAt(cell.fetchedAt, lang))}</div>
-        ${noteHtml(cell)}
+        ${noteHtml(cell, lang)}
       </div>
     </td>
   `;
@@ -361,9 +398,11 @@ function brokerNotesHtml(cell, lang = currentLanguage) {
   const text = textFor(lang);
   const separator = lang === "zh" ? "：" : ": ";
   const safeCell = cell || createEmptyCell();
-  const bullets = splitNotes(safeCell.notes);
+  const bullets = lang === "en"
+    ? EN_BROKER_BULLETS[safeCell.regionId] || []
+    : splitNotes(safeCell.notes);
   const source = safeCell.sourceUrl
-    ? `<a href="${escapeHtml(safeCell.sourceUrl)}" target="_blank" rel="noreferrer">${escapeHtml(safeCell.sourceName || text.sourcePrefix)}</a>`
+    ? `<a href="${escapeHtml(safeCell.sourceUrl)}" target="_blank" rel="noreferrer">${escapeHtml(localizeSourceName(safeCell.sourceName || text.sourcePrefix, lang))}</a>`
     : `<span>${escapeHtml(text.noSource)}</span>`;
 
   return `
@@ -383,6 +422,7 @@ function brokerNotesHtml(cell, lang = currentLanguage) {
 export function primaryCardToHtml(row, lang = currentLanguage) {
   const text = textFor(lang);
   const cells = row?.cells || {};
+  const stockCollateralCell = { ...(cells.stock_collateral || createEmptyCell()), regionId: row.regionId };
   return `
     <article class="primary-card">
       <div class="primary-card-head">
@@ -394,7 +434,7 @@ export function primaryCardToHtml(row, lang = currentLanguage) {
         ${cardMetricHtml(text.mortgageHeader, cells.mortgage, lang)}
         ${cardMetricHtml(text.creditHeader, cells.personal_credit, lang)}
       </div>
-      ${brokerNotesHtml(cells.stock_collateral, lang)}
+      ${brokerNotesHtml(stockCollateralCell, lang)}
     </article>
   `;
 }
