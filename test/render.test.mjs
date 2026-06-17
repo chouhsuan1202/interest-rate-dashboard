@@ -23,6 +23,8 @@ test("formats known quality labels in plain language", () => {
   assert.equal(qualityLabel("official"), "官方");
   assert.equal(qualityLabel("broker"), "券商");
   assert.equal(qualityLabel("unavailable"), "無資料");
+  assert.equal(qualityLabel("official", "en"), "Official");
+  assert.equal(qualityLabel("unavailable", "en"), "N/A");
 });
 
 test("renders stale cells visibly", () => {
@@ -197,6 +199,8 @@ test("keeps tables and source links when history loading fails", () => {
   assert.match(rowToHtml(viewModel.primaryRows[0]), /來源：Federal Reserve/);
   assert.match(primaryCardToHtml(viewModel.primaryCards[0]), /政策利率/);
   assert.match(primaryCardToHtml(viewModel.primaryCards[0]), /股票質押 \/ 券商/);
+  assert.match(primaryCardToHtml(viewModel.primaryCards[0], "en"), /Policy rate/);
+  assert.match(primaryCardToHtml(viewModel.primaryCards[0], "en"), /Stock collateral \/ brokers/);
 });
 
 test("uses cached snapshot as stale fallback when live rates fail", () => {

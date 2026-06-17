@@ -10,54 +10,60 @@
   <body>
     <header class="page-header">
       <div class="header-copy">
-        <h1>全球利率</h1>
+        <h1 data-i18n="title">全球利率</h1>
         <span class="inline-status" id="statusBar">讀取中</span>
       </div>
-      <button id="refreshButton" type="button">更新</button>
+      <div class="header-actions">
+        <div class="language-toggle" role="group" aria-label="語言切換">
+          <button id="langZh" class="language-option" type="button" data-lang="zh">中</button>
+          <button id="langEn" class="language-option" type="button" data-lang="en">EN</button>
+        </div>
+        <button id="refreshButton" type="button" data-i18n="refresh">更新</button>
+      </div>
     </header>
 
     <main>
       <section class="primary-overview" aria-labelledby="primaryHeading">
         <div class="section-heading compact">
-          <h2 id="primaryHeading">重點地區</h2>
+          <h2 id="primaryHeading" data-i18n="primaryHeading">重點地區</h2>
         </div>
         <div class="primary-card-grid" id="primaryCards"></div>
       </section>
 
       <section class="asia-summary-section" aria-labelledby="europeHeading">
         <div class="section-heading compact">
-          <h2 id="europeHeading">歐洲其他</h2>
+          <h2 id="europeHeading" data-i18n="europeHeading">歐洲其他</h2>
         </div>
         <div class="asia-summary-list europe-list" id="europeSummary"></div>
       </section>
 
       <section class="asia-summary-section" aria-labelledby="asiaHeading">
         <div class="section-heading compact">
-          <h2 id="asiaHeading">亞洲其他</h2>
+          <h2 id="asiaHeading" data-i18n="asiaHeading">亞洲其他</h2>
         </div>
         <div class="asia-summary-list" id="asiaSummary"></div>
       </section>
 
       <section>
         <div class="section-heading compact">
-          <h2>政策利率趨勢</h2>
+          <h2 data-i18n="trendHeading">政策利率趨勢</h2>
         </div>
         <div id="trendChart" class="chart" aria-label="政策利率趨勢圖"></div>
       </section>
 
       <section>
         <div class="section-heading compact">
-          <h2>明細</h2>
+          <h2 data-i18n="detailsHeading">明細</h2>
         </div>
         <div class="table-wrap">
           <table>
             <thead>
               <tr>
-                <th>地區</th>
-                <th>政策利率</th>
-                <th>房貸</th>
-                <th>信貸</th>
-                <th>股票質押 / 融資</th>
+                <th data-i18n="regionHeader">地區</th>
+                <th data-i18n="policyHeader">政策利率</th>
+                <th data-i18n="mortgageHeader">房貸</th>
+                <th data-i18n="creditHeader">信貸</th>
+                <th data-i18n="stockHeader">股票質押 / 融資</th>
               </tr>
             </thead>
             <tbody id="primaryRows"></tbody>
@@ -67,17 +73,17 @@
 
       <section>
         <div class="section-heading compact">
-          <h2>亞洲明細</h2>
+          <h2 data-i18n="asiaDetailsHeading">亞洲明細</h2>
         </div>
         <div class="table-wrap">
           <table>
             <thead>
               <tr>
-                <th>地區</th>
-                <th>政策利率</th>
-                <th>房貸</th>
-                <th>信貸</th>
-                <th>股票質押 / 融資</th>
+                <th data-i18n="regionHeader">地區</th>
+                <th data-i18n="policyHeader">政策利率</th>
+                <th data-i18n="mortgageHeader">房貸</th>
+                <th data-i18n="creditHeader">信貸</th>
+                <th data-i18n="stockHeader">股票質押 / 融資</th>
               </tr>
             </thead>
             <tbody id="asiaRows"></tbody>
@@ -86,7 +92,7 @@
       </section>
 
       <footer class="page-footer">
-        <p class="quality-note">
+        <p class="quality-note" data-i18n="qualityNote">
           資料狀態：官方 = 央行或監管機構來源；市場 = 比較網站或公開市場報價；券商 = 融資或 margin 費率表；手動 = 人工維護區間與來源連結；無資料 = 尚無可靠公開數值。
         </p>
         <p class="credit">Created by Hsuan × her AI bestie</p>
