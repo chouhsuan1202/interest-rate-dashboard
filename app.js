@@ -35,7 +35,6 @@ const UI_TEXT = {
     creditHeader: "信貸",
     stockHeader: "股票質押 / 融資",
     brokerLabel: "股票質押 / 券商",
-    cardSourcesLabel: "資料來源",
     chartAria: "美國、荷蘭、台灣政策利率趨勢",
     chartCaption: "近三年政策利率趨勢；美國為 FRED FEDFUNDS 月資料，歐元區與台灣依官方利率調整日整理。",
     chartLoadFirst: "利率資料載入後才會顯示趨勢圖。",
@@ -78,7 +77,6 @@ const UI_TEXT = {
     creditHeader: "Personal loan",
     stockHeader: "Stock collateral / margin",
     brokerLabel: "Stock collateral / brokers",
-    cardSourcesLabel: "Sources",
     chartAria: "Policy rate trend for the US, Netherlands, and Taiwan",
     chartCaption: "Three-year policy rate trend. US uses monthly FRED FEDFUNDS; euro area and Taiwan follow official rate-change dates.",
     chartLoadFirst: "Trend appears after rates data loads.",
@@ -435,51 +433,19 @@ function brokerNotesHtml(cell, lang = currentLanguage) {
   `;
 }
 
-function cardSourcesHtml(cells, lang = currentLanguage) {
-  const text = textFor(lang);
-  const labels = {
-    policy_rate: text.policyHeader,
-    mortgage: text.mortgageHeader,
-    personal_credit: text.creditHeader,
-    stock_collateral: text.stockHeader
-  };
-  const items = PRODUCT_ORDER
-    .map((productId) => {
-      const cell = cells?.[productId];
-      if (!cell?.sourceUrl) {
-        return "";
-      }
-
-      const sourceName = localizeSourceName(cell.sourceName || text.sourcePrefix, lang);
-      return `
-        <li>
-          <span>${escapeHtml(labels[productId])}</span>
-          <a href="${escapeHtml(cell.sourceUrl)}" target="_blank" rel="noreferrer">${escapeHtml(sourceName)}</a>
-        </li>
-      `;
-    })
-    .filter(Boolean);
-
-  if (!items.length) {
-    return "";
-  }
-
-  return `
-    <div class="card-sources">
-      <span>${escapeHtml(text.cardSourcesLabel)}</span>
-      <ul>${items.join("")}</ul>
-    </div>
-  `;
-}
-
 export function primaryCardToHtml(row, lang = currentLanguage) {
   const text = textFor(lang);
   const cells = row?.cells || {};
   const stockCollateralCell = { ...(cells.stock_collateral || createEmptyCell()), regionId: row.regionId };
+  const title = escapeHtml(localizeRegion(row, lang));
+  const titleHtml = cells.policy_rate?.sourceUrl
+    ? `<a href="${escapeHtml(cells.policy_rate.sourceUrl)}" target="_blank" rel="noreferrer">${title}</a>`
+    : title;
+
   return `
     <article class="primary-card">
       <div class="primary-card-head">
-        <h3>${escapeHtml(localizeRegion(row, lang))}</h3>
+        <h3>${titleHtml}</h3>
       </div>
       <div class="primary-metrics">
         ${cardMetricHtml(text.policyHeader, cells.policy_rate, lang)}
@@ -487,7 +453,6 @@ export function primaryCardToHtml(row, lang = currentLanguage) {
         ${cardMetricHtml(text.creditHeader, cells.personal_credit, lang)}
       </div>
       ${brokerNotesHtml(stockCollateralCell, lang)}
-      ${cardSourcesHtml(cells, lang)}
     </article>
   `;
 }
