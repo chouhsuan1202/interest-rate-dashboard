@@ -208,6 +208,8 @@ test("keeps tables and source links when history loading fails", () => {
   assert.match(rowToHtml(viewModel.primaryRows[0]), /來源：Federal Reserve/);
   assert.match(primaryCardToHtml(viewModel.primaryCards[0]), /政策利率/);
   assert.match(primaryCardToHtml(viewModel.primaryCards[0]), /股票質押 \/ 券商/);
+  assert.match(primaryCardToHtml(viewModel.primaryCards[0]), /<h3><a href="https:\/\/example.com\/fed"/);
+  assert.doesNotMatch(primaryCardToHtml(viewModel.primaryCards[0]), /card-sources/);
   assert.match(primaryCardToHtml(viewModel.primaryCards[0], "en"), /Policy rate/);
   assert.match(primaryCardToHtml(viewModel.primaryCards[0], "en"), /Stock collateral \/ brokers/);
   assert.doesNotMatch(primaryCardToHtml(viewModel.primaryCards[0], "en"), /可查券商|金額越大|起/);

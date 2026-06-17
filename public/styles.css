@@ -166,7 +166,9 @@ section {
 .detail-section summary::after {
   content: "▾";
   color: #6c7580;
-  font-size: 13px;
+  font-size: 22px;
+  line-height: 1;
+  padding-left: 8px;
   transition: transform 160ms ease;
 }
 
@@ -224,6 +226,16 @@ section {
   line-height: 1.2;
 }
 
+.primary-card h3 a {
+  color: inherit;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+}
+
+.primary-card h3 a:hover {
+  color: #0f5f8f;
+}
+
 .primary-metrics {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -278,39 +290,6 @@ section {
 .broker-source {
   color: #6c7580;
   font-size: 11px;
-}
-
-.card-sources {
-  display: grid;
-  gap: 5px;
-  border-top: 1px solid #e5e9ee;
-  padding-top: 8px;
-  color: #6c7580;
-  font-size: 11px;
-}
-
-.card-sources > span {
-  font-weight: 750;
-}
-
-.card-sources ul {
-  display: grid;
-  gap: 4px;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.card-sources li {
-  display: grid;
-  grid-template-columns: 72px minmax(0, 1fr);
-  gap: 8px;
-}
-
-.card-sources a {
-  min-width: 0;
-  color: #0f5f8f;
-  overflow-wrap: anywhere;
 }
 
 .metric-label {
