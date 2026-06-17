@@ -1,5 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
+import historyFixture from "../public/data/history.json" with { type: "json" };
 
 import {
   buildChartModel,
@@ -150,6 +151,13 @@ test("renders trend chart svg with legend text", () => {
   assert.match(svg, /荷蘭/);
   assert.match(svg, /台灣/);
   assert.match(svg, /path/);
+});
+
+test("keeps the final chart date from colliding with the previous month label", () => {
+  const svg = buildChartSvg(buildChartModel(historyFixture, "zh"), "zh");
+
+  assert.match(svg, /6月17日/);
+  assert.doesNotMatch(svg, /5月1日/);
 });
 
 test("keeps tables and source links when history loading fails", () => {

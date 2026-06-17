@@ -538,10 +538,22 @@ export function buildChartSvg(model, lang = currentLanguage) {
     .join("");
 
   const labelEvery = Math.max(1, Math.ceil(pointCount / 6));
+  const xLabelIndexes = model.points
+    .map((_, index) => index)
+    .filter((index) => index === 0 || index === pointCount - 1 || index % labelEvery === 0)
+    .filter((index, _, indexes) => {
+      if (index === pointCount - 1) {
+        return true;
+      }
+
+      const lastIndex = pointCount - 1;
+      const lastIsShown = indexes.includes(lastIndex);
+      const minimumGap = Math.max(2, Math.floor(labelEvery / 2));
+      return !lastIsShown || lastIndex - index >= minimumGap;
+    });
   const xLabels = model.points
     .map((point, index) => {
-      const shouldLabel = index === 0 || index === pointCount - 1 || index % labelEvery === 0;
-      if (!shouldLabel) {
+      if (!xLabelIndexes.includes(index)) {
         return "";
       }
 
