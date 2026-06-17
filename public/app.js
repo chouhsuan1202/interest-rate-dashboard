@@ -128,6 +128,7 @@ const VALUE_TRANSLATIONS = {
     "依券商融資融券": "Broker margin financing",
     "依券商 margin loan": "Broker margin loan",
     "依券商 margin financing": "Broker margin financing",
+    "SORA 約 2.3%": "SORA approx. 2.3%",
     "IBKR：基準利率 + 2.5% 起": "IBKR: benchmark + 2.5% from",
     "IBKR EUR：依基準利率加碼": "IBKR EUR: benchmark + spread"
   }
@@ -142,7 +143,19 @@ const SOURCE_NAME_TRANSLATIONS = {
     "荷蘭房貸比較來源": "Dutch mortgage comparison source",
     "ABN AMRO，使用者人工確認": "ABN AMRO, manually confirmed by user",
     "Freddie Mac / 美國房貸市場來源": "Freddie Mac / US mortgage market source",
-    "Federal Reserve 消費信貸資料": "Federal Reserve consumer credit data"
+    "Federal Reserve 消費信貸資料": "Federal Reserve consumer credit data",
+    "日本住宅金融支援機構 / 銀行房貸來源": "Japan Housing Finance Agency / bank mortgage source",
+    "日本銀行與消費金融公開頁": "Bank of Japan and consumer finance public sources",
+    "日本券商信用交易費率": "Japan broker margin trading fee source",
+    "中國 LPR / 房貸市場來源": "China LPR / mortgage market source",
+    "中國銀行與消費信貸公開來源": "China bank and consumer credit public sources",
+    "中國券商融資融券費率": "China broker margin financing source",
+    "韓國銀行 / 銀行房貸來源": "Bank of Korea / bank mortgage source",
+    "韓國銀行與個人信貸公開來源": "Korean bank and personal loan public sources",
+    "韓國券商融資費率": "Korea broker margin financing source",
+    "新加坡銀行房貸來源": "Singapore bank mortgage source",
+    "新加坡銀行個人貸款來源": "Singapore bank personal loan source",
+    "新加坡券商 margin 費率": "Singapore broker margin fee source"
   }
 };
 
