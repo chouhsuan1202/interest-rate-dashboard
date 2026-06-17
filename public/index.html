@@ -51,10 +51,10 @@
         <div id="trendChart" class="chart" aria-label="政策利率趨勢圖"></div>
       </section>
 
-      <section>
-        <div class="section-heading compact">
-          <h2 data-i18n="detailsHeading">明細</h2>
-        </div>
+      <details class="detail-section collapsible-detail" open>
+        <summary>
+          <span data-i18n="detailsHeading">明細</span>
+        </summary>
         <div class="table-wrap">
           <table>
             <thead>
@@ -69,12 +69,12 @@
             <tbody id="primaryRows"></tbody>
           </table>
         </div>
-      </section>
+      </details>
 
-      <section>
-        <div class="section-heading compact">
-          <h2 data-i18n="asiaDetailsHeading">亞洲明細</h2>
-        </div>
+      <details class="detail-section collapsible-detail" open>
+        <summary>
+          <span data-i18n="asiaDetailsHeading">亞洲明細</span>
+        </summary>
         <div class="table-wrap">
           <table>
             <thead>
@@ -89,7 +89,7 @@
             <tbody id="asiaRows"></tbody>
           </table>
         </div>
-      </section>
+      </details>
 
       <footer class="page-footer">
         <p class="quality-note" data-i18n="qualityNote">

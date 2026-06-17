@@ -197,6 +197,34 @@ function localizeDisplay(value, lang = currentLanguage) {
   return VALUE_TRANSLATIONS[lang]?.[value] || value;
 }
 
+function representativeRate(cell) {
+  if (!cell) return null;
+  if (Number.isFinite(cell.numericValue)) return cell.numericValue;
+
+  const display = String(cell.display || "");
+  const matches = [...display.matchAll(/(\d+(?:\.\d+)?)/g)].map((match) => Number(match[1]));
+  if (!matches.length || matches.some((value) => !Number.isFinite(value))) return null;
+  return matches.reduce((sum, value) => sum + value, 0) / matches.length;
+}
+
+export function rateTone(productId, cell) {
+  const rate = representativeRate(cell);
+  if (!Number.isFinite(rate)) return "unknown";
+
+  const thresholds = {
+    policy_rate: [1.5, 2.5, 4, 6],
+    mortgage: [2.5, 4, 6, 8],
+    personal_credit: [4, 8, 12, 18],
+    stock_collateral: [3, 6, 9, 12]
+  }[productId] || [2, 4, 7, 10];
+
+  if (rate < thresholds[0]) return "low";
+  if (rate < thresholds[1]) return "moderate";
+  if (rate < thresholds[2]) return "mid";
+  if (rate < thresholds[3]) return "high";
+  return "very-high";
+}
+
 function formatChartDate(isoString, lang = currentLanguage) {
   const date = new Date(isoString);
   if (!isValidDate(date)) {
@@ -283,15 +311,16 @@ function noteHtml(cell) {
   return `<div class="cell-meta note">${escapeHtml(cell.notes)}</div>`;
 }
 
-function cellToHtml(cell, lang = currentLanguage) {
+function cellToHtml(cell, productId, lang = currentLanguage) {
   const text = textFor(lang);
   const separator = lang === "zh" ? "：" : ": ";
   const staleFlag = cell.stale ? `<span class="stale-flag">${escapeHtml(text.staleFlag)}</span>` : "";
+  const tone = rateTone(productId, cell);
 
   return `
-    <td class="${cell.stale ? "stale" : ""}">
+    <td class="${cell.stale ? "stale" : ""}" data-rate-tone="${escapeHtml(tone)}">
       <div class="cell-stack">
-        <div class="rate-value">${escapeHtml(localizeDisplay(cell.display, lang))}</div>
+        <div class="rate-value rate-tone">${escapeHtml(localizeDisplay(cell.display, lang))}</div>
         <div class="quality-line">
           <span class="quality">${escapeHtml(qualityLabel(cell.quality, lang))}</span>
           ${staleFlag}
@@ -308,7 +337,7 @@ export function rowToHtml(row, lang = currentLanguage) {
   return `
     <tr>
       <th scope="row">${escapeHtml(localizeRegion(row, lang))}</th>
-      ${PRODUCT_ORDER.map((productId) => cellToHtml(row.cells[productId] || createEmptyCell(), lang)).join("")}
+      ${PRODUCT_ORDER.map((productId) => cellToHtml(row.cells[productId] || createEmptyCell(), productId, lang)).join("")}
     </tr>
   `;
 }
@@ -316,11 +345,13 @@ export function rowToHtml(row, lang = currentLanguage) {
 function cardMetricHtml(label, cell, lang = currentLanguage) {
   const safeCell = cell || createEmptyCell();
   const staleFlag = safeCell.stale ? `<span class="stale-flag">${escapeHtml(textFor(lang).staleFlag)}</span>` : "";
+  const productId = PRODUCT_ORDER.find((id) => safeCell.productId === id) || "";
+  const tone = rateTone(productId, safeCell);
 
   return `
-    <div class="card-metric">
+    <div class="card-metric" data-rate-tone="${escapeHtml(tone)}">
       <span class="metric-label">${escapeHtml(label)}</span>
-      <strong>${escapeHtml(localizeDisplay(safeCell.display, lang))}</strong>
+      <strong class="rate-tone">${escapeHtml(localizeDisplay(safeCell.display, lang))}</strong>
       <span class="metric-meta">${escapeHtml(qualityLabel(safeCell.quality, lang))}${staleFlag ? ` ${staleFlag}` : ""}</span>
     </div>
   `;
@@ -371,11 +402,12 @@ export function primaryCardToHtml(row, lang = currentLanguage) {
 export function asiaItemToHtml(row, lang = currentLanguage) {
   const policyRate = row?.cells?.policy_rate || createEmptyCell();
   const staleClass = policyRate.stale ? " stale" : "";
+  const tone = rateTone("policy_rate", policyRate);
 
   return `
-    <a class="asia-pill${staleClass}" href="${escapeHtml(policyRate.sourceUrl || "#")}" target="_blank" rel="noreferrer">
+    <a class="asia-pill${staleClass}" data-rate-tone="${escapeHtml(tone)}" href="${escapeHtml(policyRate.sourceUrl || "#")}" target="_blank" rel="noreferrer">
       <span>${escapeHtml(localizeRegion(row, lang))}</span>
-      <strong>${escapeHtml(localizeDisplay(policyRate.display, lang))}</strong>
+      <strong class="rate-tone">${escapeHtml(localizeDisplay(policyRate.display, lang))}</strong>
     </a>
   `;
 }
@@ -669,6 +701,14 @@ function writeLanguage(lang, storage = getStorage()) {
   }
 }
 
+function syncDetailDisclosureForViewport() {
+  if (typeof window === "undefined" || typeof document === "undefined") return;
+  const shouldCollapse = window.matchMedia("(max-width: 720px)").matches;
+  document.querySelectorAll(".collapsible-detail").forEach((detail) => {
+    detail.open = !shouldCollapse;
+  });
+}
+
 function readCachedSnapshot(storage) {
   if (!storage) {
     return null;
@@ -772,6 +812,8 @@ if (typeof document !== "undefined") {
       }
     });
   });
+
+  syncDetailDisclosureForViewport();
 
   loadDashboard().then(({ viewModel, snapshotResult, historyResult }) => {
     currentViewModel = viewModel;
