@@ -8,6 +8,7 @@ import {
   formatUpdatedAt,
   primaryCardToHtml,
   qualityLabel,
+  rateTone,
   rowToHtml
 } from "../public/app.js";
 
@@ -25,6 +26,14 @@ test("formats known quality labels in plain language", () => {
   assert.equal(qualityLabel("unavailable"), "無資料");
   assert.equal(qualityLabel("official", "en"), "Official");
   assert.equal(qualityLabel("unavailable", "en"), "N/A");
+});
+
+test("classifies rate tone by product-specific thresholds", () => {
+  assert.equal(rateTone("policy_rate", { numericValue: 1 }), "low");
+  assert.equal(rateTone("policy_rate", { numericValue: 5 }), "high");
+  assert.equal(rateTone("personal_credit", { numericValue: 16 }), "high");
+  assert.equal(rateTone("personal_credit", { display: "20.00%" }), "very-high");
+  assert.equal(rateTone("mortgage", { display: "無資料" }), "unknown");
 });
 
 test("renders stale cells visibly", () => {
@@ -201,6 +210,55 @@ test("keeps tables and source links when history loading fails", () => {
   assert.match(primaryCardToHtml(viewModel.primaryCards[0]), /股票質押 \/ 券商/);
   assert.match(primaryCardToHtml(viewModel.primaryCards[0], "en"), /Policy rate/);
   assert.match(primaryCardToHtml(viewModel.primaryCards[0], "en"), /Stock collateral \/ brokers/);
+  assert.doesNotMatch(primaryCardToHtml(viewModel.primaryCards[0], "en"), /可查券商|金額越大|起/);
+});
+
+test("omits long Chinese notes in English details", () => {
+  const html = rowToHtml({
+    regionId: "tw",
+    label: "台灣",
+    cells: {
+      policy_rate: {
+        productId: "policy_rate",
+        display: "2.00%",
+        quality: "official",
+        sourceName: "Central Bank",
+        sourceUrl: "https://example.com",
+        fetchedAt: "2026-06-16T00:00:00.000Z",
+        notes: "這是一段很長的中文註記"
+      },
+      mortgage: {
+        productId: "mortgage",
+        display: "2.20-3.00%",
+        quality: "manual",
+        sourceName: "Bank",
+        sourceUrl: "https://example.com",
+        fetchedAt: "",
+        notes: "台灣房貸常見參考區間"
+      },
+      personal_credit: {
+        productId: "personal_credit",
+        display: "2.50-16.00%",
+        quality: "manual",
+        sourceName: "Bank",
+        sourceUrl: "https://example.com",
+        fetchedAt: "",
+        notes: "台灣信貸常見公告區間"
+      },
+      stock_collateral: {
+        productId: "stock_collateral",
+        display: "依券商/銀行專案",
+        quality: "broker",
+        sourceName: "Broker",
+        sourceUrl: "https://example.com",
+        fetchedAt: "",
+        notes: "可查券商：元大、凱基、國泰"
+      }
+    }
+  }, "en");
+
+  assert.match(html, /Taiwan/);
+  assert.doesNotMatch(html, /台灣|可查券商|中文註記/);
 });
 
 test("uses cached snapshot as stale fallback when live rates fail", () => {
