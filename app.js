@@ -35,8 +35,9 @@ const UI_TEXT = {
     creditHeader: "信貸",
     stockHeader: "股票質押 / 融資",
     brokerLabel: "股票質押 / 券商",
+    cardSourcesLabel: "資料來源",
     chartAria: "美國、歐洲 / 荷蘭、台灣政策利率趨勢",
-    chartCaption: "依每日保存紀錄顯示政策利率趨勢。",
+    chartCaption: "近三年政策利率趨勢；美國為 FRED FEDFUNDS 月資料，歐元區與台灣依官方利率調整日整理。",
     chartLoadFirst: "利率資料載入後才會顯示趨勢圖。",
     chartUnavailable: "趨勢圖暫時無法讀取。",
     chartNoHistory: "目前還沒有足夠歷史資料可顯示趨勢圖。",
@@ -77,8 +78,9 @@ const UI_TEXT = {
     creditHeader: "Personal loan",
     stockHeader: "Stock collateral / margin",
     brokerLabel: "Stock collateral / brokers",
+    cardSourcesLabel: "Sources",
     chartAria: "Policy rate trend for the US, Europe / Netherlands, and Taiwan",
-    chartCaption: "Policy rate trend based on saved daily snapshots.",
+    chartCaption: "Three-year policy rate trend. US uses monthly FRED FEDFUNDS; euro area and Taiwan follow official rate-change dates.",
     chartLoadFirst: "Trend appears after rates data loads.",
     chartUnavailable: "Trend chart is unavailable right now.",
     chartNoHistory: "Not enough saved history to show a trend yet.",
@@ -409,14 +411,10 @@ function cardMetricHtml(label, cell, lang = currentLanguage) {
 
 function brokerNotesHtml(cell, lang = currentLanguage) {
   const text = textFor(lang);
-  const separator = lang === "zh" ? "：" : ": ";
   const safeCell = cell || createEmptyCell();
   const bullets = lang === "en"
     ? EN_BROKER_BULLETS[safeCell.regionId] || []
     : splitNotes(safeCell.notes);
-  const source = safeCell.sourceUrl
-    ? `<a href="${escapeHtml(safeCell.sourceUrl)}" target="_blank" rel="noreferrer">${escapeHtml(localizeSourceName(safeCell.sourceName || text.sourcePrefix, lang))}</a>`
-    : `<span>${escapeHtml(text.noSource)}</span>`;
 
   return `
     <div class="broker-notes">
@@ -427,7 +425,43 @@ function brokerNotesHtml(cell, lang = currentLanguage) {
       <ul>
         ${bullets.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}
       </ul>
-      <div class="broker-source">${escapeHtml(text.sourcePrefix)}${separator}${source}</div>
+    </div>
+  `;
+}
+
+function cardSourcesHtml(cells, lang = currentLanguage) {
+  const text = textFor(lang);
+  const labels = {
+    policy_rate: text.policyHeader,
+    mortgage: text.mortgageHeader,
+    personal_credit: text.creditHeader,
+    stock_collateral: text.stockHeader
+  };
+  const items = PRODUCT_ORDER
+    .map((productId) => {
+      const cell = cells?.[productId];
+      if (!cell?.sourceUrl) {
+        return "";
+      }
+
+      const sourceName = localizeSourceName(cell.sourceName || text.sourcePrefix, lang);
+      return `
+        <li>
+          <span>${escapeHtml(labels[productId])}</span>
+          <a href="${escapeHtml(cell.sourceUrl)}" target="_blank" rel="noreferrer">${escapeHtml(sourceName)}</a>
+        </li>
+      `;
+    })
+    .filter(Boolean);
+
+  if (!items.length) {
+    return "";
+  }
+
+  return `
+    <div class="card-sources">
+      <span>${escapeHtml(text.cardSourcesLabel)}</span>
+      <ul>${items.join("")}</ul>
     </div>
   `;
 }
@@ -440,7 +474,6 @@ export function primaryCardToHtml(row, lang = currentLanguage) {
     <article class="primary-card">
       <div class="primary-card-head">
         <h3>${escapeHtml(localizeRegion(row, lang))}</h3>
-        <div class="primary-source">${sourceHtml(cells.policy_rate || createEmptyCell(), lang)}</div>
       </div>
       <div class="primary-metrics">
         ${cardMetricHtml(text.policyHeader, cells.policy_rate, lang)}
@@ -448,6 +481,7 @@ export function primaryCardToHtml(row, lang = currentLanguage) {
         ${cardMetricHtml(text.creditHeader, cells.personal_credit, lang)}
       </div>
       ${brokerNotesHtml(stockCollateralCell, lang)}
+      ${cardSourcesHtml(cells, lang)}
     </article>
   `;
 }
@@ -495,7 +529,7 @@ export function buildChartSvg(model, lang = currentLanguage) {
     return "";
   }
 
-  const width = 760;
+  const width = 860;
   const height = 320;
   const margin = { top: 54, right: 24, bottom: 58, left: 54 };
   const plotWidth = width - margin.left - margin.right;
@@ -532,13 +566,18 @@ export function buildChartSvg(model, lang = currentLanguage) {
     )
     .join("");
 
+  const labelEvery = Math.max(1, Math.ceil(pointCount / 6));
   const xLabels = model.points
-    .map(
-      (point, index) =>
-        `<text x="${xForIndex(index).toFixed(1)}" y="${height - 18}" text-anchor="middle" class="chart-axis-label">${escapeHtml(
-          point.shortLabel
-        )}</text>`
-    )
+    .map((point, index) => {
+      const shouldLabel = index === 0 || index === pointCount - 1 || index % labelEvery === 0;
+      if (!shouldLabel) {
+        return "";
+      }
+
+      return `<text x="${xForIndex(index).toFixed(1)}" y="${height - 18}" text-anchor="middle" class="chart-axis-label">${escapeHtml(
+        point.shortLabel
+      )}</text>`;
+    })
     .join("");
 
   const seriesLines = model.series

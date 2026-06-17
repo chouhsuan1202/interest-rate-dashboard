@@ -1,13 +1,625 @@
 [
   {
-    "observedAt": "2026-06-16T00:00:00.000Z",
+    "observedAt": "2023-06-01T00:00:00.000Z",
+    "rates": [
+      {
+        "regionId": "us",
+        "value": 5.08
+      },
+      {
+        "regionId": "euro",
+        "value": 3.75
+      },
+      {
+        "regionId": "tw",
+        "value": 1.875
+      }
+    ]
+  },
+  {
+    "observedAt": "2023-07-01T00:00:00.000Z",
+    "rates": [
+      {
+        "regionId": "us",
+        "value": 5.12
+      },
+      {
+        "regionId": "euro",
+        "value": 4
+      },
+      {
+        "regionId": "tw",
+        "value": 1.875
+      }
+    ]
+  },
+  {
+    "observedAt": "2023-08-01T00:00:00.000Z",
+    "rates": [
+      {
+        "regionId": "us",
+        "value": 5.33
+      },
+      {
+        "regionId": "euro",
+        "value": 4
+      },
+      {
+        "regionId": "tw",
+        "value": 1.875
+      }
+    ]
+  },
+  {
+    "observedAt": "2023-09-01T00:00:00.000Z",
+    "rates": [
+      {
+        "regionId": "us",
+        "value": 5.33
+      },
+      {
+        "regionId": "euro",
+        "value": 4.25
+      },
+      {
+        "regionId": "tw",
+        "value": 1.875
+      }
+    ]
+  },
+  {
+    "observedAt": "2023-10-01T00:00:00.000Z",
+    "rates": [
+      {
+        "regionId": "us",
+        "value": 5.33
+      },
+      {
+        "regionId": "euro",
+        "value": 4.5
+      },
+      {
+        "regionId": "tw",
+        "value": 1.875
+      }
+    ]
+  },
+  {
+    "observedAt": "2023-11-01T00:00:00.000Z",
+    "rates": [
+      {
+        "regionId": "us",
+        "value": 5.33
+      },
+      {
+        "regionId": "euro",
+        "value": 4.5
+      },
+      {
+        "regionId": "tw",
+        "value": 1.875
+      }
+    ]
+  },
+  {
+    "observedAt": "2023-12-01T00:00:00.000Z",
+    "rates": [
+      {
+        "regionId": "us",
+        "value": 5.33
+      },
+      {
+        "regionId": "euro",
+        "value": 4.5
+      },
+      {
+        "regionId": "tw",
+        "value": 1.875
+      }
+    ]
+  },
+  {
+    "observedAt": "2024-01-01T00:00:00.000Z",
+    "rates": [
+      {
+        "regionId": "us",
+        "value": 5.33
+      },
+      {
+        "regionId": "euro",
+        "value": 4.5
+      },
+      {
+        "regionId": "tw",
+        "value": 1.875
+      }
+    ]
+  },
+  {
+    "observedAt": "2024-02-01T00:00:00.000Z",
+    "rates": [
+      {
+        "regionId": "us",
+        "value": 5.33
+      },
+      {
+        "regionId": "euro",
+        "value": 4.5
+      },
+      {
+        "regionId": "tw",
+        "value": 1.875
+      }
+    ]
+  },
+  {
+    "observedAt": "2024-03-01T00:00:00.000Z",
+    "rates": [
+      {
+        "regionId": "us",
+        "value": 5.33
+      },
+      {
+        "regionId": "euro",
+        "value": 4.5
+      },
+      {
+        "regionId": "tw",
+        "value": 1.875
+      }
+    ]
+  },
+  {
+    "observedAt": "2024-04-01T00:00:00.000Z",
+    "rates": [
+      {
+        "regionId": "us",
+        "value": 5.33
+      },
+      {
+        "regionId": "euro",
+        "value": 4.5
+      },
+      {
+        "regionId": "tw",
+        "value": 2
+      }
+    ]
+  },
+  {
+    "observedAt": "2024-05-01T00:00:00.000Z",
+    "rates": [
+      {
+        "regionId": "us",
+        "value": 5.33
+      },
+      {
+        "regionId": "euro",
+        "value": 4.5
+      },
+      {
+        "regionId": "tw",
+        "value": 2
+      }
+    ]
+  },
+  {
+    "observedAt": "2024-06-01T00:00:00.000Z",
+    "rates": [
+      {
+        "regionId": "us",
+        "value": 5.33
+      },
+      {
+        "regionId": "euro",
+        "value": 4.5
+      },
+      {
+        "regionId": "tw",
+        "value": 2
+      }
+    ]
+  },
+  {
+    "observedAt": "2024-07-01T00:00:00.000Z",
+    "rates": [
+      {
+        "regionId": "us",
+        "value": 5.33
+      },
+      {
+        "regionId": "euro",
+        "value": 4.25
+      },
+      {
+        "regionId": "tw",
+        "value": 2
+      }
+    ]
+  },
+  {
+    "observedAt": "2024-08-01T00:00:00.000Z",
+    "rates": [
+      {
+        "regionId": "us",
+        "value": 5.33
+      },
+      {
+        "regionId": "euro",
+        "value": 4.25
+      },
+      {
+        "regionId": "tw",
+        "value": 2
+      }
+    ]
+  },
+  {
+    "observedAt": "2024-09-01T00:00:00.000Z",
+    "rates": [
+      {
+        "regionId": "us",
+        "value": 5.13
+      },
+      {
+        "regionId": "euro",
+        "value": 4.25
+      },
+      {
+        "regionId": "tw",
+        "value": 2
+      }
+    ]
+  },
+  {
+    "observedAt": "2024-10-01T00:00:00.000Z",
+    "rates": [
+      {
+        "regionId": "us",
+        "value": 4.83
+      },
+      {
+        "regionId": "euro",
+        "value": 3.65
+      },
+      {
+        "regionId": "tw",
+        "value": 2
+      }
+    ]
+  },
+  {
+    "observedAt": "2024-11-01T00:00:00.000Z",
+    "rates": [
+      {
+        "regionId": "us",
+        "value": 4.64
+      },
+      {
+        "regionId": "euro",
+        "value": 3.4
+      },
+      {
+        "regionId": "tw",
+        "value": 2
+      }
+    ]
+  },
+  {
+    "observedAt": "2024-12-01T00:00:00.000Z",
+    "rates": [
+      {
+        "regionId": "us",
+        "value": 4.48
+      },
+      {
+        "regionId": "euro",
+        "value": 3.4
+      },
+      {
+        "regionId": "tw",
+        "value": 2
+      }
+    ]
+  },
+  {
+    "observedAt": "2025-01-01T00:00:00.000Z",
+    "rates": [
+      {
+        "regionId": "us",
+        "value": 4.33
+      },
+      {
+        "regionId": "euro",
+        "value": 3.15
+      },
+      {
+        "regionId": "tw",
+        "value": 2
+      }
+    ]
+  },
+  {
+    "observedAt": "2025-02-01T00:00:00.000Z",
+    "rates": [
+      {
+        "regionId": "us",
+        "value": 4.33
+      },
+      {
+        "regionId": "euro",
+        "value": 3.15
+      },
+      {
+        "regionId": "tw",
+        "value": 2
+      }
+    ]
+  },
+  {
+    "observedAt": "2025-03-01T00:00:00.000Z",
+    "rates": [
+      {
+        "regionId": "us",
+        "value": 4.33
+      },
+      {
+        "regionId": "euro",
+        "value": 2.9
+      },
+      {
+        "regionId": "tw",
+        "value": 2
+      }
+    ]
+  },
+  {
+    "observedAt": "2025-04-01T00:00:00.000Z",
+    "rates": [
+      {
+        "regionId": "us",
+        "value": 4.33
+      },
+      {
+        "regionId": "euro",
+        "value": 2.65
+      },
+      {
+        "regionId": "tw",
+        "value": 2
+      }
+    ]
+  },
+  {
+    "observedAt": "2025-05-01T00:00:00.000Z",
+    "rates": [
+      {
+        "regionId": "us",
+        "value": 4.33
+      },
+      {
+        "regionId": "euro",
+        "value": 2.4
+      },
+      {
+        "regionId": "tw",
+        "value": 2
+      }
+    ]
+  },
+  {
+    "observedAt": "2025-06-01T00:00:00.000Z",
+    "rates": [
+      {
+        "regionId": "us",
+        "value": 4.33
+      },
+      {
+        "regionId": "euro",
+        "value": 2.4
+      },
+      {
+        "regionId": "tw",
+        "value": 2
+      }
+    ]
+  },
+  {
+    "observedAt": "2025-07-01T00:00:00.000Z",
+    "rates": [
+      {
+        "regionId": "us",
+        "value": 4.33
+      },
+      {
+        "regionId": "euro",
+        "value": 2.15
+      },
+      {
+        "regionId": "tw",
+        "value": 2
+      }
+    ]
+  },
+  {
+    "observedAt": "2025-08-01T00:00:00.000Z",
+    "rates": [
+      {
+        "regionId": "us",
+        "value": 4.33
+      },
+      {
+        "regionId": "euro",
+        "value": 2.15
+      },
+      {
+        "regionId": "tw",
+        "value": 2
+      }
+    ]
+  },
+  {
+    "observedAt": "2025-09-01T00:00:00.000Z",
+    "rates": [
+      {
+        "regionId": "us",
+        "value": 4.22
+      },
+      {
+        "regionId": "euro",
+        "value": 2.15
+      },
+      {
+        "regionId": "tw",
+        "value": 2
+      }
+    ]
+  },
+  {
+    "observedAt": "2025-10-01T00:00:00.000Z",
+    "rates": [
+      {
+        "regionId": "us",
+        "value": 4.09
+      },
+      {
+        "regionId": "euro",
+        "value": 2.15
+      },
+      {
+        "regionId": "tw",
+        "value": 2
+      }
+    ]
+  },
+  {
+    "observedAt": "2025-11-01T00:00:00.000Z",
+    "rates": [
+      {
+        "regionId": "us",
+        "value": 3.88
+      },
+      {
+        "regionId": "euro",
+        "value": 2.15
+      },
+      {
+        "regionId": "tw",
+        "value": 2
+      }
+    ]
+  },
+  {
+    "observedAt": "2025-12-01T00:00:00.000Z",
+    "rates": [
+      {
+        "regionId": "us",
+        "value": 3.72
+      },
+      {
+        "regionId": "euro",
+        "value": 2.15
+      },
+      {
+        "regionId": "tw",
+        "value": 2
+      }
+    ]
+  },
+  {
+    "observedAt": "2026-01-01T00:00:00.000Z",
+    "rates": [
+      {
+        "regionId": "us",
+        "value": 3.64
+      },
+      {
+        "regionId": "euro",
+        "value": 2.15
+      },
+      {
+        "regionId": "tw",
+        "value": 2
+      }
+    ]
+  },
+  {
+    "observedAt": "2026-02-01T00:00:00.000Z",
+    "rates": [
+      {
+        "regionId": "us",
+        "value": 3.64
+      },
+      {
+        "regionId": "euro",
+        "value": 2.15
+      },
+      {
+        "regionId": "tw",
+        "value": 2
+      }
+    ]
+  },
+  {
+    "observedAt": "2026-03-01T00:00:00.000Z",
+    "rates": [
+      {
+        "regionId": "us",
+        "value": 3.64
+      },
+      {
+        "regionId": "euro",
+        "value": 2.15
+      },
+      {
+        "regionId": "tw",
+        "value": 2
+      }
+    ]
+  },
+  {
+    "observedAt": "2026-04-01T00:00:00.000Z",
+    "rates": [
+      {
+        "regionId": "us",
+        "value": 3.64
+      },
+      {
+        "regionId": "euro",
+        "value": 2.15
+      },
+      {
+        "regionId": "tw",
+        "value": 2
+      }
+    ]
+  },
+  {
+    "observedAt": "2026-05-01T00:00:00.000Z",
+    "rates": [
+      {
+        "regionId": "us",
+        "value": 3.63
+      },
+      {
+        "regionId": "euro",
+        "value": 2.15
+      },
+      {
+        "regionId": "tw",
+        "value": 2
+      }
+    ]
+  },
+  {
+    "observedAt": "2026-06-17T00:00:00.000Z",
     "rates": [
       {
         "regionId": "us",
         "value": 3.75
       },
       {
-        "regionId": "euro_nl",
+        "regionId": "euro",
         "value": 2.4
       },
       {
