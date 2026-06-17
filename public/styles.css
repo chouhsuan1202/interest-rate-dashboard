@@ -534,9 +534,10 @@ a {
   }
 
   .page-header {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 12px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: start;
+    gap: 10px;
     padding: 14px;
     position: sticky;
     top: 0;
@@ -544,14 +545,14 @@ a {
   }
 
   .page-header button {
-    width: 100%;
+    width: auto;
   }
 
   .header-actions {
-    width: 100%;
+    justify-self: end;
     display: grid;
-    grid-template-columns: minmax(0, 1fr) 92px;
-    gap: 10px;
+    grid-template-columns: auto 92px;
+    gap: 8px;
   }
 
   .language-toggle {
@@ -559,20 +560,25 @@ a {
     grid-template-columns: repeat(2, 1fr);
   }
 
+  #refreshButton {
+    min-width: 52px;
+    min-height: 40px;
+    padding: 0 11px;
+  }
+
   h1 {
-    font-size: 23px;
+    font-size: 22px;
   }
 
   .header-copy {
     display: grid;
-    grid-template-columns: auto minmax(0, 1fr);
-    align-items: center;
-    gap: 8px;
+    gap: 5px;
   }
 
   .inline-status {
     min-height: 22px;
-    padding-left: 8px;
+    border-left: 0;
+    padding: 0;
     font-size: 11px;
     white-space: nowrap;
     overflow: hidden;
