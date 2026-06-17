@@ -384,35 +384,35 @@ tbody tr:last-child td {
 }
 
 [data-rate-tone="low"] .rate-tone {
-  color: #1f7a48;
+  color: #15803d;
 }
 
 [data-rate-tone="moderate"] {
 }
 
 [data-rate-tone="moderate"] .rate-tone {
-  color: #5e7f32;
+  color: #65a30d;
 }
 
 [data-rate-tone="mid"] {
 }
 
 [data-rate-tone="mid"] .rate-tone {
-  color: #9a7116;
+  color: #d97706;
 }
 
 [data-rate-tone="high"] {
 }
 
 [data-rate-tone="high"] .rate-tone {
-  color: #b85e1f;
+  color: #dc2626;
 }
 
 [data-rate-tone="very-high"] {
 }
 
 [data-rate-tone="very-high"] .rate-tone {
-  color: #ad332f;
+  color: #991b1b;
 }
 
 [data-rate-tone="unknown"] {
