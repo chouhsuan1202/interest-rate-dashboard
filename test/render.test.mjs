@@ -110,7 +110,7 @@ test("builds a three-line policy trend model in plain language", () => {
 
   assert.deepEqual(
     model.series.map((item) => item.label),
-    ["美國", "歐洲 / 荷蘭", "台灣"]
+    ["美國", "荷蘭", "台灣"]
   );
   assert.equal(model.points.length, 3);
   assert.deepEqual(
@@ -147,7 +147,7 @@ test("renders trend chart svg with legend text", () => {
 
   assert.match(svg, /<svg/);
   assert.match(svg, /美國/);
-  assert.match(svg, /歐洲 \/ 荷蘭/);
+  assert.match(svg, /荷蘭/);
   assert.match(svg, /台灣/);
   assert.match(svg, /path/);
 });

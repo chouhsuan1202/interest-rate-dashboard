@@ -3,7 +3,7 @@ const SNAPSHOT_CACHE_KEY = "interest-rate-dashboard.snapshot";
 const LANG_CACHE_KEY = "interest-rate-dashboard.language";
 const CHART_SERIES = [
   { label: "美國", aliases: ["us"], color: "#0f5f8f" },
-  { label: "歐洲 / 荷蘭", aliases: ["euro_nl", "euro"], color: "#2f6f65" },
+  { label: "荷蘭", aliases: ["euro_nl", "euro"], color: "#2f6f65" },
   { label: "台灣", aliases: ["tw"], color: "#8a4f7d" }
 ];
 
@@ -36,7 +36,7 @@ const UI_TEXT = {
     stockHeader: "股票質押 / 融資",
     brokerLabel: "股票質押 / 券商",
     cardSourcesLabel: "資料來源",
-    chartAria: "美國、歐洲 / 荷蘭、台灣政策利率趨勢",
+    chartAria: "美國、荷蘭、台灣政策利率趨勢",
     chartCaption: "近三年政策利率趨勢；美國為 FRED FEDFUNDS 月資料，歐元區與台灣依官方利率調整日整理。",
     chartLoadFirst: "利率資料載入後才會顯示趨勢圖。",
     chartUnavailable: "趨勢圖暫時無法讀取。",
@@ -79,7 +79,7 @@ const UI_TEXT = {
     stockHeader: "Stock collateral / margin",
     brokerLabel: "Stock collateral / brokers",
     cardSourcesLabel: "Sources",
-    chartAria: "Policy rate trend for the US, Europe / Netherlands, and Taiwan",
+    chartAria: "Policy rate trend for the US, Netherlands, and Taiwan",
     chartCaption: "Three-year policy rate trend. US uses monthly FRED FEDFUNDS; euro area and Taiwan follow official rate-change dates.",
     chartLoadFirst: "Trend appears after rates data loads.",
     chartUnavailable: "Trend chart is unavailable right now.",
@@ -99,7 +99,7 @@ const UI_TEXT = {
 const REGION_LABELS = {
   en: {
     us: "United States",
-    euro_nl: "Europe / Netherlands",
+    euro_nl: "Netherlands",
     tw: "Taiwan",
     jp: "Japan",
     cn: "China",
@@ -368,9 +368,15 @@ function cellToHtml(cell, productId, lang = currentLanguage) {
   const separator = lang === "zh" ? "：" : ": ";
   const staleFlag = cell.stale ? `<span class="stale-flag">${escapeHtml(text.staleFlag)}</span>` : "";
   const tone = rateTone(productId, cell);
+  const columnLabel = {
+    policy_rate: text.policyHeader,
+    mortgage: text.mortgageHeader,
+    personal_credit: text.creditHeader,
+    stock_collateral: text.stockHeader
+  }[productId] || "";
 
   return `
-    <td class="${cell.stale ? "stale" : ""}" data-rate-tone="${escapeHtml(tone)}">
+    <td class="${cell.stale ? "stale" : ""}" data-label="${escapeHtml(columnLabel)}" data-rate-tone="${escapeHtml(tone)}">
       <div class="cell-stack">
         <div class="rate-value rate-tone">${escapeHtml(localizeDisplay(cell.display, lang))}</div>
         <div class="quality-line">
@@ -509,7 +515,7 @@ export function buildChartModel(history, lang = currentLanguage) {
 
   const series = CHART_SERIES.map((item) => ({
     ...item,
-    label: lang === "en" ? (item.aliases.includes("us") ? "United States" : item.aliases.includes("tw") ? "Taiwan" : "Europe / Netherlands") : item.label,
+    label: lang === "en" ? (item.aliases.includes("us") ? "United States" : item.aliases.includes("tw") ? "Taiwan" : "Netherlands") : item.label,
     values: Array.isArray(history) ? history.map((entry) => historyValueForAliases(entry, item.aliases)) : []
   }));
 
