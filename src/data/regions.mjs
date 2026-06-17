@@ -1,0 +1,22 @@
+export const REGIONS = [
+  { id: "us", label: "美國", shortLabel: "美國", group: "primary", policyRateKey: "us" },
+  { id: "euro_nl", label: "歐洲 / 荷蘭", shortLabel: "歐洲 / 荷蘭", group: "primary", policyRateKey: "euro" },
+  { id: "tw", label: "台灣", shortLabel: "台灣", group: "primary", policyRateKey: "tw" },
+  { id: "jp", label: "日本", shortLabel: "日本", group: "asia", policyRateKey: "jp" },
+  { id: "cn", label: "中國", shortLabel: "中國", group: "asia", policyRateKey: "cn" },
+  { id: "kr", label: "韓國", shortLabel: "韓國", group: "asia", policyRateKey: "kr" },
+  { id: "sg", label: "新加坡", shortLabel: "新加坡", group: "asia", policyRateKey: "sg" },
+  { id: "uk", label: "英國", shortLabel: "英國", group: "europe", policyRateKey: "uk" },
+  { id: "ch", label: "瑞士", shortLabel: "瑞士", group: "europe", policyRateKey: "ch" },
+  { id: "de", label: "德國", shortLabel: "德國", group: "europe", policyRateKey: "euro" },
+  { id: "fr", label: "法國", shortLabel: "法國", group: "europe", policyRateKey: "euro" },
+  { id: "be", label: "比利時", shortLabel: "比利時", group: "europe", policyRateKey: "euro" },
+  { id: "at", label: "奧地利", shortLabel: "奧地利", group: "europe", policyRateKey: "euro" },
+  { id: "ie", label: "愛爾蘭", shortLabel: "愛爾蘭", group: "europe", policyRateKey: "euro" },
+  { id: "it", label: "義大利", shortLabel: "義大利", group: "europe", policyRateKey: "euro" },
+  { id: "es", label: "西班牙", shortLabel: "西班牙", group: "europe", policyRateKey: "euro" },
+  { id: "pt", label: "葡萄牙", shortLabel: "葡萄牙", group: "europe", policyRateKey: "euro" },
+  { id: "se", label: "瑞典", shortLabel: "瑞典", group: "europe", policyRateKey: "se" },
+  { id: "no", label: "挪威", shortLabel: "挪威", group: "europe", policyRateKey: "no" },
+  { id: "dk", label: "丹麥", shortLabel: "丹麥", group: "europe", policyRateKey: "dk" }
+];

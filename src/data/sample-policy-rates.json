@@ -1,0 +1,23 @@
+{
+  "asOf": "2026-06-16T00:00:00.000Z",
+  "rates": {
+    "us": { "value": 3.75, "quality": "official", "sourceName": "Federal Reserve", "sourceUrl": "https://www.federalreserve.gov/monetarypolicy/openmarket.htm" },
+    "euro": { "value": 2.4, "quality": "official", "sourceName": "European Central Bank", "sourceUrl": "https://www.ecb.europa.eu/stats/policy_and_exchange_rates/key_ecb_interest_rates/html/index.en.html" },
+    "tw": { "value": 2, "quality": "official", "sourceName": "Central Bank of the Republic of China", "sourceUrl": "https://www.cbc.gov.tw/" },
+    "jp": { "value": 1, "quality": "official", "sourceName": "Bank of Japan", "sourceUrl": "https://www.boj.or.jp/en/" },
+    "cn": { "value": 3, "quality": "official", "sourceName": "People's Bank of China", "sourceUrl": "http://www.pbc.gov.cn/en/" },
+    "kr": { "value": 2.5, "quality": "official", "sourceName": "Bank of Korea", "sourceUrl": "https://www.bok.or.kr/eng/" },
+    "sg": {
+      "value": "SORA 約 2.3%",
+      "quality": "market",
+      "sourceName": "Monetary Authority of Singapore",
+      "sourceUrl": "https://www.mas.gov.sg/",
+      "notes": "新加坡主要使用匯率政策框架，不以單一政策利率作為主要工具；此處以 SORA / 短端市場利率作 proxy。"
+    },
+    "uk": { "value": 3.75, "quality": "official", "sourceName": "Bank of England", "sourceUrl": "https://www.bankofengland.co.uk/monetary-policy/the-interest-rate-bank-rate" },
+    "ch": { "value": 0, "quality": "market", "sourceName": "Swiss National Bank / Trading Economics", "sourceUrl": "https://tradingeconomics.com/switzerland/interest-rate" },
+    "se": { "value": 1.75, "quality": "market", "sourceName": "Sveriges Riksbank / Trading Economics", "sourceUrl": "https://tradingeconomics.com/sweden/interest-rate" },
+    "no": { "value": 4.25, "quality": "market", "sourceName": "Norges Bank / Trading Economics", "sourceUrl": "https://tradingeconomics.com/norway/interest-rate" },
+    "dk": { "value": 1.85, "quality": "market", "sourceName": "Danmarks Nationalbank / Trading Economics", "sourceUrl": "https://tradingeconomics.com/denmark/interest-rate" }
+  }
+}

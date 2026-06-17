@@ -1,0 +1,433 @@
+:root {
+  color-scheme: light;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Noto Sans TC", "Segoe UI", sans-serif;
+  background: #f2f4f7;
+  color: #18202a;
+  line-height: 1.4;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #f2f4f7;
+  color: #18202a;
+}
+
+.page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 24px;
+  background: #ffffff;
+  border-bottom: 1px solid #d9e0e7;
+}
+
+.header-copy {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 10px;
+  min-width: 0;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+  letter-spacing: 0;
+}
+
+h1 {
+  font-size: 30px;
+  line-height: 1.1;
+  font-weight: 780;
+}
+
+.inline-status {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  border-left: 3px solid #aeb7c2;
+  padding: 3px 0 3px 9px;
+  color: #6c7580;
+  font-size: 12px;
+  font-weight: 650;
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: 17px;
+  line-height: 1.2;
+}
+
+button {
+  min-height: 40px;
+  border: 1px solid #2f6f65;
+  border-radius: 6px;
+  padding: 0 14px;
+  background: #2f6f65;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #275d55;
+}
+
+main {
+  display: grid;
+  gap: 14px;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+section {
+  background: #ffffff;
+  border: 1px solid #d9e0e7;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.section-heading {
+  display: grid;
+  gap: 4px;
+  margin-bottom: 12px;
+}
+
+.section-heading.compact {
+  margin-bottom: 10px;
+}
+
+.section-heading p {
+  color: #5d6773;
+  font-size: 13px;
+}
+
+.primary-overview {
+  padding: 16px;
+}
+
+.primary-card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.primary-card {
+  display: grid;
+  gap: 14px;
+  min-height: 288px;
+  border: 1px solid #d9e0e7;
+  border-radius: 8px;
+  padding: 14px;
+  background: #fbfcfd;
+}
+
+.primary-card-head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: start;
+  gap: 10px;
+  min-width: 0;
+}
+
+.primary-card h3 {
+  color: #18202a;
+  font-size: 22px;
+  line-height: 1.2;
+}
+
+.primary-source {
+  max-width: 170px;
+  text-align: right;
+}
+
+.primary-source .cell-meta {
+  font-size: 11px;
+}
+
+.primary-metrics {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.card-metric {
+  display: grid;
+  gap: 5px;
+  min-height: 82px;
+  border: 1px solid #e5e9ee;
+  border-radius: 7px;
+  padding: 10px;
+  background: #ffffff;
+}
+
+.broker-notes {
+  display: grid;
+  gap: 8px;
+  border-top: 1px solid #e5e9ee;
+  padding-top: 10px;
+}
+
+.broker-notes-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.broker-notes-head span {
+  color: #5d6773;
+  font-size: 12px;
+  font-weight: 750;
+}
+
+.broker-notes-head strong {
+  color: #18202a;
+  font-size: 14px;
+  text-align: right;
+}
+
+.broker-notes ul {
+  display: grid;
+  gap: 5px;
+  margin: 0;
+  padding-left: 18px;
+  color: #354253;
+  font-size: 12px;
+}
+
+.broker-source {
+  color: #6c7580;
+  font-size: 11px;
+}
+
+.metric-label {
+  color: #5d6773;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.card-metric strong {
+  color: #18202a;
+  font-size: 20px;
+  line-height: 1.15;
+  overflow-wrap: anywhere;
+}
+
+.metric-meta {
+  color: #5d6773;
+  font-size: 11px;
+}
+
+.asia-summary-section {
+  padding: 14px 16px;
+}
+
+.asia-summary-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.europe-list .asia-pill {
+  min-width: 132px;
+}
+
+.asia-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  min-width: 148px;
+  border: 1px solid #d9e0e7;
+  border-radius: 8px;
+  padding: 9px 11px;
+  background: #fbfcfd;
+  color: #18202a;
+  text-decoration: none;
+}
+
+.asia-pill strong {
+  font-size: 15px;
+}
+
+.table-wrap {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  min-width: 860px;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  border-bottom: 1px solid #e5e9ee;
+  padding: 12px 10px;
+  text-align: left;
+  vertical-align: top;
+}
+
+thead th {
+  color: #5d6773;
+  font-size: 12px;
+}
+
+tbody th {
+  width: 180px;
+  min-width: 180px;
+  color: #19212b;
+  font-size: 14px;
+}
+
+tbody tr:last-child th,
+tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.rate-value {
+  color: #19212b;
+  font-size: 16px;
+  font-weight: 800;
+  word-break: break-word;
+}
+
+.cell-stack {
+  display: grid;
+  gap: 6px;
+}
+
+.cell-meta {
+  color: #5d6773;
+  font-size: 12px;
+  overflow-wrap: anywhere;
+}
+
+.quality-line {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+}
+
+.quality {
+  display: inline-block;
+  border-radius: 999px;
+  padding: 2px 7px;
+  background: #eef2ef;
+  color: #32433f;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.stale-flag {
+  color: #a35a14;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.note {
+  color: #6d4c41;
+}
+
+a {
+  color: #0f5f8f;
+}
+
+.chart {
+  min-height: 220px;
+  border: 1px solid #e5e9ee;
+  border-radius: 6px;
+  background: #fbfcfd;
+  padding: 16px;
+}
+
+.chart-caption {
+  margin-bottom: 10px;
+  color: #5d6773;
+  font-size: 13px;
+}
+
+.chart-empty {
+  display: flex;
+  align-items: center;
+  min-height: 180px;
+  color: #5d6773;
+  font-size: 14px;
+}
+
+.trend-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.chart-grid {
+  stroke: #d6dde5;
+  stroke-width: 1;
+}
+
+.chart-axis-label {
+  fill: #5d6773;
+  font-size: 12px;
+}
+
+.chart-legend-label {
+  fill: #19212b;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.quality-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 10px;
+  color: #354253;
+  font-size: 14px;
+}
+
+@media (max-width: 720px) {
+  .page-header {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 16px;
+  }
+
+  .page-header button {
+    width: 100%;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  .primary-card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .primary-card {
+    min-height: auto;
+  }
+
+  .primary-metrics {
+    grid-template-columns: 1fr;
+  }
+
+  .asia-pill {
+    width: 100%;
+  }
+
+  main {
+    padding: 12px;
+  }
+}

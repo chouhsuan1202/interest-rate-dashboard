@@ -1,0 +1,12 @@
+{
+  "name": "interest-rate-dashboard",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test test/*.test.mjs",
+    "refresh": "node scripts/refresh-data.mjs",
+    "build": "node scripts/refresh-data.mjs",
+    "preview": "python3 -m http.server 4173 --directory public"
+  }
+}
