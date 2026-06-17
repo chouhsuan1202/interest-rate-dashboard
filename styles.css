@@ -132,6 +132,46 @@ section {
   padding: 16px;
 }
 
+.detail-section {
+  background: #ffffff;
+  border: 1px solid #d9e0e7;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.detail-section summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+  color: #18202a;
+  font-size: 17px;
+  line-height: 1.2;
+  font-weight: 700;
+  cursor: pointer;
+  list-style: none;
+}
+
+.detail-section summary::-webkit-details-marker {
+  display: none;
+}
+
+.detail-section summary::after {
+  content: "▾";
+  color: #6c7580;
+  font-size: 13px;
+  transition: transform 160ms ease;
+}
+
+.detail-section:not([open]) summary {
+  margin-bottom: 0;
+}
+
+.detail-section:not([open]) summary::after {
+  transform: rotate(-90deg);
+}
+
 .section-heading {
   display: grid;
   gap: 4px;
@@ -541,6 +581,20 @@ a {
   section {
     border-radius: 7px;
     padding: 12px;
+  }
+
+  .detail-section {
+    border-radius: 7px;
+    padding: 12px;
+  }
+
+  .detail-section summary {
+    margin-bottom: 0;
+    min-height: 28px;
+  }
+
+  .detail-section[open] summary {
+    margin-bottom: 10px;
   }
 
   .primary-overview {
