@@ -208,10 +208,7 @@ section {
 }
 
 .primary-card-head {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  align-items: start;
-  gap: 10px;
+  display: block;
   min-width: 0;
 }
 
@@ -219,15 +216,6 @@ section {
   color: #18202a;
   font-size: 22px;
   line-height: 1.2;
-}
-
-.primary-source {
-  max-width: 170px;
-  text-align: right;
-}
-
-.primary-source .cell-meta {
-  font-size: 11px;
 }
 
 .primary-metrics {
@@ -284,6 +272,39 @@ section {
 .broker-source {
   color: #6c7580;
   font-size: 11px;
+}
+
+.card-sources {
+  display: grid;
+  gap: 5px;
+  border-top: 1px solid #e5e9ee;
+  padding-top: 8px;
+  color: #6c7580;
+  font-size: 11px;
+}
+
+.card-sources > span {
+  font-weight: 750;
+}
+
+.card-sources ul {
+  display: grid;
+  gap: 4px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.card-sources li {
+  display: grid;
+  grid-template-columns: 72px minmax(0, 1fr);
+  gap: 8px;
+}
+
+.card-sources a {
+  min-width: 0;
+  color: #0f5f8f;
+  overflow-wrap: anywhere;
 }
 
 .metric-label {
@@ -544,7 +565,7 @@ a {
   .header-actions {
     width: 100%;
     display: grid;
-    grid-template-columns: 92px minmax(0, 1fr);
+    grid-template-columns: minmax(0, 1fr) 92px;
     gap: 10px;
   }
 
@@ -613,18 +634,8 @@ a {
     background: #ffffff;
   }
 
-  .primary-card-head {
-    grid-template-columns: 1fr;
-    gap: 4px;
-  }
-
   .primary-card h3 {
     font-size: 22px;
-  }
-
-  .primary-source {
-    max-width: none;
-    text-align: left;
   }
 
   .primary-metrics {
