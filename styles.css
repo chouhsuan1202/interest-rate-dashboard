@@ -16,6 +16,12 @@ body {
   color: #18202a;
 }
 
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 .page-header {
   display: flex;
   align-items: center;
@@ -632,6 +638,7 @@ a {
     gap: 12px;
     padding: 14px;
     background: #ffffff;
+    min-width: 0;
   }
 
   .primary-card h3 {
@@ -639,7 +646,7 @@ a {
   }
 
   .primary-metrics {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: 1fr;
     gap: 8px;
   }
 
@@ -689,20 +696,64 @@ a {
   .chart {
     min-height: 190px;
     padding: 10px;
-    overflow-x: auto;
+    overflow-x: hidden;
   }
 
   .trend-svg {
-    min-width: 620px;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .table-wrap {
+    overflow-x: visible;
   }
 
   table {
-    min-width: 720px;
+    min-width: 0;
   }
 
+  table,
+  thead,
+  tbody,
+  tr,
   th,
   td {
-    padding: 10px 8px;
+    display: block;
+    width: 100%;
+  }
+
+  thead {
+    display: none;
+  }
+
+  tbody tr {
+    display: grid;
+    gap: 8px;
+    border-bottom: 1px solid #e5e9ee;
+    padding: 10px 0;
+  }
+
+  tbody th {
+    width: 100%;
+    min-width: 0;
+    padding: 0;
+    border-bottom: 0;
+    font-size: 16px;
+  }
+
+  td {
+    border: 1px solid #e5e9ee;
+    border-radius: 7px;
+    padding: 10px;
+  }
+
+  td::before {
+    content: attr(data-label);
+    display: block;
+    margin-bottom: 6px;
+    color: #5d6773;
+    font-size: 12px;
+    font-weight: 750;
   }
 
   .page-footer {
@@ -717,10 +768,6 @@ a {
 }
 
 @media (max-width: 390px) {
-  .primary-metrics {
-    grid-template-columns: 1fr;
-  }
-
   .asia-summary-list {
     grid-template-columns: 1fr;
   }

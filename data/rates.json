@@ -65,8 +65,8 @@
     },
     {
       "regionId": "euro_nl",
-      "label": "歐洲 / 荷蘭",
-      "shortLabel": "歐洲 / 荷蘭",
+      "label": "荷蘭",
+      "shortLabel": "荷蘭",
       "group": "primary",
       "cells": {
         "policy_rate": {
