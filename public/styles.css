@@ -388,12 +388,21 @@ a {
   font-weight: 700;
 }
 
-.quality-grid {
+.page-footer {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
-  gap: 10px;
-  color: #354253;
-  font-size: 14px;
+  gap: 8px;
+  padding: 4px 2px 14px;
+  color: #6c7580;
+  font-size: 12px;
+}
+
+.quality-note {
+  max-width: 980px;
+}
+
+.credit {
+  color: #4d5865;
+  font-weight: 700;
 }
 
 @media (max-width: 720px) {
