@@ -1,0 +1,19 @@
+[
+  {
+    "observedAt": "2026-06-16T00:00:00.000Z",
+    "rates": [
+      {
+        "regionId": "us",
+        "value": 3.75
+      },
+      {
+        "regionId": "euro_nl",
+        "value": 2.4
+      },
+      {
+        "regionId": "tw",
+        "value": 2
+      }
+    ]
+  }
+]

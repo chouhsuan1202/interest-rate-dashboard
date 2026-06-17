@@ -1,0 +1,1135 @@
+{
+  "generatedAt": "2026-06-17T08:55:05.458Z",
+  "productLabels": {
+    "policy_rate": "政策利率",
+    "mortgage": "房貸利率",
+    "personal_credit": "個人信貸",
+    "stock_collateral": "股票質押 / 融資"
+  },
+  "primaryRows": [
+    {
+      "regionId": "us",
+      "label": "美國",
+      "shortLabel": "美國",
+      "group": "primary",
+      "cells": {
+        "policy_rate": {
+          "productId": "policy_rate",
+          "label": "政策利率",
+          "display": "3.75%",
+          "numericValue": 3.75,
+          "quality": "official",
+          "sourceName": "Federal Reserve",
+          "sourceUrl": "https://www.federalreserve.gov/monetarypolicy/openmarket.htm",
+          "fetchedAt": "2026-06-16T00:00:00.000Z",
+          "stale": false,
+          "notes": ""
+        },
+        "mortgage": {
+          "productId": "mortgage",
+          "label": "房貸利率",
+          "display": "6.50-7.50%",
+          "numericValue": null,
+          "quality": "market",
+          "sourceName": "Freddie Mac / 美國房貸市場來源",
+          "sourceUrl": "https://www.freddiemac.com/pmms",
+          "fetchedAt": "",
+          "stale": false,
+          "notes": "美國房貸參考區間；之後接上穩定來源後可自動更新。"
+        },
+        "personal_credit": {
+          "productId": "personal_credit",
+          "label": "個人信貸",
+          "display": "11.40%",
+          "numericValue": 11.4,
+          "quality": "manual",
+          "sourceName": "Federal Reserve 消費信貸資料",
+          "sourceUrl": "https://www.federalreserve.gov/releases/g19/current/",
+          "fetchedAt": "",
+          "stale": false,
+          "notes": "Fed G.19 顯示 2026 Q1 商業銀行 24 個月 personal loans 約 11.40%；實際核貸依信用分數、收入與銀行條件不同。"
+        },
+        "stock_collateral": {
+          "productId": "stock_collateral",
+          "label": "股票質押 / 融資",
+          "display": "IBKR：基準利率 + 2.5% 起",
+          "numericValue": null,
+          "quality": "broker",
+          "sourceName": "券商 margin 費率表",
+          "sourceUrl": "https://www.interactivebrokers.com/en/trading/margin-rates.php",
+          "fetchedAt": "",
+          "stale": false,
+          "notes": "IBKR Lite：benchmark + 2.5%｜IBKR Pro：benchmark + 1.5% 起，金額越大 spread 越低｜可查券商：Interactive Brokers、Charles Schwab、Fidelity"
+        }
+      }
+    },
+    {
+      "regionId": "euro_nl",
+      "label": "歐洲 / 荷蘭",
+      "shortLabel": "歐洲 / 荷蘭",
+      "group": "primary",
+      "cells": {
+        "policy_rate": {
+          "productId": "policy_rate",
+          "label": "政策利率",
+          "display": "2.40%",
+          "numericValue": 2.4,
+          "quality": "official",
+          "sourceName": "European Central Bank",
+          "sourceUrl": "https://www.ecb.europa.eu/stats/policy_and_exchange_rates/key_ecb_interest_rates/html/index.en.html",
+          "fetchedAt": "2026-06-16T00:00:00.000Z",
+          "stale": false,
+          "notes": ""
+        },
+        "mortgage": {
+          "productId": "mortgage",
+          "label": "房貸利率",
+          "display": "3.50-4.50%",
+          "numericValue": null,
+          "quality": "market",
+          "sourceName": "荷蘭房貸比較來源",
+          "sourceUrl": "https://www.hypotheker.nl/rentestanden/",
+          "fetchedAt": "",
+          "stale": false,
+          "notes": "荷蘭房貸參考區間；實際利率依固定年限、LTV、NHG、收入與銀行條件不同。"
+        },
+        "personal_credit": {
+          "productId": "personal_credit",
+          "label": "個人信貸",
+          "display": "7.20%",
+          "numericValue": 7.2,
+          "quality": "manual",
+          "sourceName": "ABN AMRO，使用者人工確認",
+          "sourceUrl": "https://www.abnamro.nl/en/personal/loans/index.html",
+          "fetchedAt": "2026-06-01T00:00:00.000Z",
+          "stale": false,
+          "notes": "使用者於 2026-06 詢問 ABN AMRO 後確認信貸利率為 7.2%；實際核貸仍依個人條件。"
+        },
+        "stock_collateral": {
+          "productId": "stock_collateral",
+          "label": "股票質押 / 融資",
+          "display": "IBKR EUR：依基準利率加碼",
+          "numericValue": null,
+          "quality": "broker",
+          "sourceName": "券商 margin 費率表",
+          "sourceUrl": "https://www.interactivebrokers.ie/en/trading/margin-rates.php",
+          "fetchedAt": "",
+          "stale": false,
+          "notes": "歐元 margin 通常依券商 benchmark + spread 計算｜荷蘭常用券商可查：Interactive Brokers、DEGIRO、Saxo Bank"
+        }
+      }
+    },
+    {
+      "regionId": "tw",
+      "label": "台灣",
+      "shortLabel": "台灣",
+      "group": "primary",
+      "cells": {
+        "policy_rate": {
+          "productId": "policy_rate",
+          "label": "政策利率",
+          "display": "2.00%",
+          "numericValue": 2,
+          "quality": "official",
+          "sourceName": "Central Bank of the Republic of China",
+          "sourceUrl": "https://www.cbc.gov.tw/",
+          "fetchedAt": "2026-06-16T00:00:00.000Z",
+          "stale": false,
+          "notes": ""
+        },
+        "mortgage": {
+          "productId": "mortgage",
+          "label": "房貸利率",
+          "display": "2.20-3.00%",
+          "numericValue": null,
+          "quality": "manual",
+          "sourceName": "台灣銀行房貸頁面",
+          "sourceUrl": "https://www.landbank.com.tw/",
+          "fetchedAt": "",
+          "stale": false,
+          "notes": "台灣房貸常見參考區間；首購、政策貸款、成數與收入條件會影響實際利率。"
+        },
+        "personal_credit": {
+          "productId": "personal_credit",
+          "label": "個人信貸",
+          "display": "2.50-16.00%",
+          "numericValue": null,
+          "quality": "manual",
+          "sourceName": "台灣銀行信貸頁面",
+          "sourceUrl": "https://www.bot.com.tw/",
+          "fetchedAt": "",
+          "stale": false,
+          "notes": "台灣信貸常見公告區間；實際核貸依職業、收入、信用評分與銀行專案。"
+        },
+        "stock_collateral": {
+          "productId": "stock_collateral",
+          "label": "股票質押 / 融資",
+          "display": "依券商/銀行專案",
+          "numericValue": null,
+          "quality": "broker",
+          "sourceName": "台灣券商融資費率",
+          "sourceUrl": "https://www.twse.com.tw/",
+          "fetchedAt": "",
+          "stale": false,
+          "notes": "股票質押多為銀行或券商專案報價｜證券融資另看券商融資利率與維持率｜可查券商：元大、凱基、國泰、富邦、永豐"
+        }
+      }
+    }
+  ],
+  "europeRows": [
+    {
+      "regionId": "uk",
+      "label": "英國",
+      "shortLabel": "英國",
+      "group": "europe",
+      "cells": {
+        "policy_rate": {
+          "productId": "policy_rate",
+          "label": "政策利率",
+          "display": "3.75%",
+          "numericValue": 3.75,
+          "quality": "official",
+          "sourceName": "Bank of England",
+          "sourceUrl": "https://www.bankofengland.co.uk/monetary-policy/the-interest-rate-bank-rate",
+          "fetchedAt": "2026-06-16T00:00:00.000Z",
+          "stale": false,
+          "notes": ""
+        },
+        "mortgage": {
+          "productId": "mortgage",
+          "label": "房貸利率",
+          "display": "無資料",
+          "numericValue": null,
+          "quality": "unavailable",
+          "sourceName": "",
+          "sourceUrl": "",
+          "fetchedAt": "",
+          "stale": false,
+          "notes": "尚未設定可靠公開數值。"
+        },
+        "personal_credit": {
+          "productId": "personal_credit",
+          "label": "個人信貸",
+          "display": "無資料",
+          "numericValue": null,
+          "quality": "unavailable",
+          "sourceName": "",
+          "sourceUrl": "",
+          "fetchedAt": "",
+          "stale": false,
+          "notes": "尚未設定可靠公開數值。"
+        },
+        "stock_collateral": {
+          "productId": "stock_collateral",
+          "label": "股票質押 / 融資",
+          "display": "無資料",
+          "numericValue": null,
+          "quality": "unavailable",
+          "sourceName": "",
+          "sourceUrl": "",
+          "fetchedAt": "",
+          "stale": false,
+          "notes": "尚未設定可靠公開數值。"
+        }
+      }
+    },
+    {
+      "regionId": "ch",
+      "label": "瑞士",
+      "shortLabel": "瑞士",
+      "group": "europe",
+      "cells": {
+        "policy_rate": {
+          "productId": "policy_rate",
+          "label": "政策利率",
+          "display": "0.00%",
+          "numericValue": 0,
+          "quality": "market",
+          "sourceName": "Swiss National Bank / Trading Economics",
+          "sourceUrl": "https://tradingeconomics.com/switzerland/interest-rate",
+          "fetchedAt": "2026-06-16T00:00:00.000Z",
+          "stale": false,
+          "notes": ""
+        },
+        "mortgage": {
+          "productId": "mortgage",
+          "label": "房貸利率",
+          "display": "無資料",
+          "numericValue": null,
+          "quality": "unavailable",
+          "sourceName": "",
+          "sourceUrl": "",
+          "fetchedAt": "",
+          "stale": false,
+          "notes": "尚未設定可靠公開數值。"
+        },
+        "personal_credit": {
+          "productId": "personal_credit",
+          "label": "個人信貸",
+          "display": "無資料",
+          "numericValue": null,
+          "quality": "unavailable",
+          "sourceName": "",
+          "sourceUrl": "",
+          "fetchedAt": "",
+          "stale": false,
+          "notes": "尚未設定可靠公開數值。"
+        },
+        "stock_collateral": {
+          "productId": "stock_collateral",
+          "label": "股票質押 / 融資",
+          "display": "無資料",
+          "numericValue": null,
+          "quality": "unavailable",
+          "sourceName": "",
+          "sourceUrl": "",
+          "fetchedAt": "",
+          "stale": false,
+          "notes": "尚未設定可靠公開數值。"
+        }
+      }
+    },
+    {
+      "regionId": "de",
+      "label": "德國",
+      "shortLabel": "德國",
+      "group": "europe",
+      "cells": {
+        "policy_rate": {
+          "productId": "policy_rate",
+          "label": "政策利率",
+          "display": "2.40%",
+          "numericValue": 2.4,
+          "quality": "official",
+          "sourceName": "European Central Bank",
+          "sourceUrl": "https://www.ecb.europa.eu/stats/policy_and_exchange_rates/key_ecb_interest_rates/html/index.en.html",
+          "fetchedAt": "2026-06-16T00:00:00.000Z",
+          "stale": false,
+          "notes": ""
+        },
+        "mortgage": {
+          "productId": "mortgage",
+          "label": "房貸利率",
+          "display": "無資料",
+          "numericValue": null,
+          "quality": "unavailable",
+          "sourceName": "",
+          "sourceUrl": "",
+          "fetchedAt": "",
+          "stale": false,
+          "notes": "尚未設定可靠公開數值。"
+        },
+        "personal_credit": {
+          "productId": "personal_credit",
+          "label": "個人信貸",
+          "display": "無資料",
+          "numericValue": null,
+          "quality": "unavailable",
+          "sourceName": "",
+          "sourceUrl": "",
+          "fetchedAt": "",
+          "stale": false,
+          "notes": "尚未設定可靠公開數值。"
+        },
+        "stock_collateral": {
+          "productId": "stock_collateral",
+          "label": "股票質押 / 融資",
+          "display": "無資料",
+          "numericValue": null,
+          "quality": "unavailable",
+          "sourceName": "",
+          "sourceUrl": "",
+          "fetchedAt": "",
+          "stale": false,
+          "notes": "尚未設定可靠公開數值。"
+        }
+      }
+    },
+    {
+      "regionId": "fr",
+      "label": "法國",
+      "shortLabel": "法國",
+      "group": "europe",
+      "cells": {
+        "policy_rate": {
+          "productId": "policy_rate",
+          "label": "政策利率",
+          "display": "2.40%",
+          "numericValue": 2.4,
+          "quality": "official",
+          "sourceName": "European Central Bank",
+          "sourceUrl": "https://www.ecb.europa.eu/stats/policy_and_exchange_rates/key_ecb_interest_rates/html/index.en.html",
+          "fetchedAt": "2026-06-16T00:00:00.000Z",
+          "stale": false,
+          "notes": ""
+        },
+        "mortgage": {
+          "productId": "mortgage",
+          "label": "房貸利率",
+          "display": "無資料",
+          "numericValue": null,
+          "quality": "unavailable",
+          "sourceName": "",
+          "sourceUrl": "",
+          "fetchedAt": "",
+          "stale": false,
+          "notes": "尚未設定可靠公開數值。"
+        },
+        "personal_credit": {
+          "productId": "personal_credit",
+          "label": "個人信貸",
+          "display": "無資料",
+          "numericValue": null,
+          "quality": "unavailable",
+          "sourceName": "",
+          "sourceUrl": "",
+          "fetchedAt": "",
+          "stale": false,
+          "notes": "尚未設定可靠公開數值。"
+        },
+        "stock_collateral": {
+          "productId": "stock_collateral",
+          "label": "股票質押 / 融資",
+          "display": "無資料",
+          "numericValue": null,
+          "quality": "unavailable",
+          "sourceName": "",
+          "sourceUrl": "",
+          "fetchedAt": "",
+          "stale": false,
+          "notes": "尚未設定可靠公開數值。"
+        }
+      }
+    },
+    {
+      "regionId": "be",
+      "label": "比利時",
+      "shortLabel": "比利時",
+      "group": "europe",
+      "cells": {
+        "policy_rate": {
+          "productId": "policy_rate",
+          "label": "政策利率",
+          "display": "2.40%",
+          "numericValue": 2.4,
+          "quality": "official",
+          "sourceName": "European Central Bank",
+          "sourceUrl": "https://www.ecb.europa.eu/stats/policy_and_exchange_rates/key_ecb_interest_rates/html/index.en.html",
+          "fetchedAt": "2026-06-16T00:00:00.000Z",
+          "stale": false,
+          "notes": ""
+        },
+        "mortgage": {
+          "productId": "mortgage",
+          "label": "房貸利率",
+          "display": "無資料",
+          "numericValue": null,
+          "quality": "unavailable",
+          "sourceName": "",
+          "sourceUrl": "",
+          "fetchedAt": "",
+          "stale": false,
+          "notes": "尚未設定可靠公開數值。"
+        },
+        "personal_credit": {
+          "productId": "personal_credit",
+          "label": "個人信貸",
+          "display": "無資料",
+          "numericValue": null,
+          "quality": "unavailable",
+          "sourceName": "",
+          "sourceUrl": "",
+          "fetchedAt": "",
+          "stale": false,
+          "notes": "尚未設定可靠公開數值。"
+        },
+        "stock_collateral": {
+          "productId": "stock_collateral",
+          "label": "股票質押 / 融資",
+          "display": "無資料",
+          "numericValue": null,
+          "quality": "unavailable",
+          "sourceName": "",
+          "sourceUrl": "",
+          "fetchedAt": "",
+          "stale": false,
+          "notes": "尚未設定可靠公開數值。"
+        }
+      }
+    },
+    {
+      "regionId": "at",
+      "label": "奧地利",
+      "shortLabel": "奧地利",
+      "group": "europe",
+      "cells": {
+        "policy_rate": {
+          "productId": "policy_rate",
+          "label": "政策利率",
+          "display": "2.40%",
+          "numericValue": 2.4,
+          "quality": "official",
+          "sourceName": "European Central Bank",
+          "sourceUrl": "https://www.ecb.europa.eu/stats/policy_and_exchange_rates/key_ecb_interest_rates/html/index.en.html",
+          "fetchedAt": "2026-06-16T00:00:00.000Z",
+          "stale": false,
+          "notes": ""
+        },
+        "mortgage": {
+          "productId": "mortgage",
+          "label": "房貸利率",
+          "display": "無資料",
+          "numericValue": null,
+          "quality": "unavailable",
+          "sourceName": "",
+          "sourceUrl": "",
+          "fetchedAt": "",
+          "stale": false,
+          "notes": "尚未設定可靠公開數值。"
+        },
+        "personal_credit": {
+          "productId": "personal_credit",
+          "label": "個人信貸",
+          "display": "無資料",
+          "numericValue": null,
+          "quality": "unavailable",
+          "sourceName": "",
+          "sourceUrl": "",
+          "fetchedAt": "",
+          "stale": false,
+          "notes": "尚未設定可靠公開數值。"
+        },
+        "stock_collateral": {
+          "productId": "stock_collateral",
+          "label": "股票質押 / 融資",
+          "display": "無資料",
+          "numericValue": null,
+          "quality": "unavailable",
+          "sourceName": "",
+          "sourceUrl": "",
+          "fetchedAt": "",
+          "stale": false,
+          "notes": "尚未設定可靠公開數值。"
+        }
+      }
+    },
+    {
+      "regionId": "ie",
+      "label": "愛爾蘭",
+      "shortLabel": "愛爾蘭",
+      "group": "europe",
+      "cells": {
+        "policy_rate": {
+          "productId": "policy_rate",
+          "label": "政策利率",
+          "display": "2.40%",
+          "numericValue": 2.4,
+          "quality": "official",
+          "sourceName": "European Central Bank",
+          "sourceUrl": "https://www.ecb.europa.eu/stats/policy_and_exchange_rates/key_ecb_interest_rates/html/index.en.html",
+          "fetchedAt": "2026-06-16T00:00:00.000Z",
+          "stale": false,
+          "notes": ""
+        },
+        "mortgage": {
+          "productId": "mortgage",
+          "label": "房貸利率",
+          "display": "無資料",
+          "numericValue": null,
+          "quality": "unavailable",
+          "sourceName": "",
+          "sourceUrl": "",
+          "fetchedAt": "",
+          "stale": false,
+          "notes": "尚未設定可靠公開數值。"
+        },
+        "personal_credit": {
+          "productId": "personal_credit",
+          "label": "個人信貸",
+          "display": "無資料",
+          "numericValue": null,
+          "quality": "unavailable",
+          "sourceName": "",
+          "sourceUrl": "",
+          "fetchedAt": "",
+          "stale": false,
+          "notes": "尚未設定可靠公開數值。"
+        },
+        "stock_collateral": {
+          "productId": "stock_collateral",
+          "label": "股票質押 / 融資",
+          "display": "無資料",
+          "numericValue": null,
+          "quality": "unavailable",
+          "sourceName": "",
+          "sourceUrl": "",
+          "fetchedAt": "",
+          "stale": false,
+          "notes": "尚未設定可靠公開數值。"
+        }
+      }
+    },
+    {
+      "regionId": "it",
+      "label": "義大利",
+      "shortLabel": "義大利",
+      "group": "europe",
+      "cells": {
+        "policy_rate": {
+          "productId": "policy_rate",
+          "label": "政策利率",
+          "display": "2.40%",
+          "numericValue": 2.4,
+          "quality": "official",
+          "sourceName": "European Central Bank",
+          "sourceUrl": "https://www.ecb.europa.eu/stats/policy_and_exchange_rates/key_ecb_interest_rates/html/index.en.html",
+          "fetchedAt": "2026-06-16T00:00:00.000Z",
+          "stale": false,
+          "notes": ""
+        },
+        "mortgage": {
+          "productId": "mortgage",
+          "label": "房貸利率",
+          "display": "無資料",
+          "numericValue": null,
+          "quality": "unavailable",
+          "sourceName": "",
+          "sourceUrl": "",
+          "fetchedAt": "",
+          "stale": false,
+          "notes": "尚未設定可靠公開數值。"
+        },
+        "personal_credit": {
+          "productId": "personal_credit",
+          "label": "個人信貸",
+          "display": "無資料",
+          "numericValue": null,
+          "quality": "unavailable",
+          "sourceName": "",
+          "sourceUrl": "",
+          "fetchedAt": "",
+          "stale": false,
+          "notes": "尚未設定可靠公開數值。"
+        },
+        "stock_collateral": {
+          "productId": "stock_collateral",
+          "label": "股票質押 / 融資",
+          "display": "無資料",
+          "numericValue": null,
+          "quality": "unavailable",
+          "sourceName": "",
+          "sourceUrl": "",
+          "fetchedAt": "",
+          "stale": false,
+          "notes": "尚未設定可靠公開數值。"
+        }
+      }
+    },
+    {
+      "regionId": "es",
+      "label": "西班牙",
+      "shortLabel": "西班牙",
+      "group": "europe",
+      "cells": {
+        "policy_rate": {
+          "productId": "policy_rate",
+          "label": "政策利率",
+          "display": "2.40%",
+          "numericValue": 2.4,
+          "quality": "official",
+          "sourceName": "European Central Bank",
+          "sourceUrl": "https://www.ecb.europa.eu/stats/policy_and_exchange_rates/key_ecb_interest_rates/html/index.en.html",
+          "fetchedAt": "2026-06-16T00:00:00.000Z",
+          "stale": false,
+          "notes": ""
+        },
+        "mortgage": {
+          "productId": "mortgage",
+          "label": "房貸利率",
+          "display": "無資料",
+          "numericValue": null,
+          "quality": "unavailable",
+          "sourceName": "",
+          "sourceUrl": "",
+          "fetchedAt": "",
+          "stale": false,
+          "notes": "尚未設定可靠公開數值。"
+        },
+        "personal_credit": {
+          "productId": "personal_credit",
+          "label": "個人信貸",
+          "display": "無資料",
+          "numericValue": null,
+          "quality": "unavailable",
+          "sourceName": "",
+          "sourceUrl": "",
+          "fetchedAt": "",
+          "stale": false,
+          "notes": "尚未設定可靠公開數值。"
+        },
+        "stock_collateral": {
+          "productId": "stock_collateral",
+          "label": "股票質押 / 融資",
+          "display": "無資料",
+          "numericValue": null,
+          "quality": "unavailable",
+          "sourceName": "",
+          "sourceUrl": "",
+          "fetchedAt": "",
+          "stale": false,
+          "notes": "尚未設定可靠公開數值。"
+        }
+      }
+    },
+    {
+      "regionId": "pt",
+      "label": "葡萄牙",
+      "shortLabel": "葡萄牙",
+      "group": "europe",
+      "cells": {
+        "policy_rate": {
+          "productId": "policy_rate",
+          "label": "政策利率",
+          "display": "2.40%",
+          "numericValue": 2.4,
+          "quality": "official",
+          "sourceName": "European Central Bank",
+          "sourceUrl": "https://www.ecb.europa.eu/stats/policy_and_exchange_rates/key_ecb_interest_rates/html/index.en.html",
+          "fetchedAt": "2026-06-16T00:00:00.000Z",
+          "stale": false,
+          "notes": ""
+        },
+        "mortgage": {
+          "productId": "mortgage",
+          "label": "房貸利率",
+          "display": "無資料",
+          "numericValue": null,
+          "quality": "unavailable",
+          "sourceName": "",
+          "sourceUrl": "",
+          "fetchedAt": "",
+          "stale": false,
+          "notes": "尚未設定可靠公開數值。"
+        },
+        "personal_credit": {
+          "productId": "personal_credit",
+          "label": "個人信貸",
+          "display": "無資料",
+          "numericValue": null,
+          "quality": "unavailable",
+          "sourceName": "",
+          "sourceUrl": "",
+          "fetchedAt": "",
+          "stale": false,
+          "notes": "尚未設定可靠公開數值。"
+        },
+        "stock_collateral": {
+          "productId": "stock_collateral",
+          "label": "股票質押 / 融資",
+          "display": "無資料",
+          "numericValue": null,
+          "quality": "unavailable",
+          "sourceName": "",
+          "sourceUrl": "",
+          "fetchedAt": "",
+          "stale": false,
+          "notes": "尚未設定可靠公開數值。"
+        }
+      }
+    },
+    {
+      "regionId": "se",
+      "label": "瑞典",
+      "shortLabel": "瑞典",
+      "group": "europe",
+      "cells": {
+        "policy_rate": {
+          "productId": "policy_rate",
+          "label": "政策利率",
+          "display": "1.75%",
+          "numericValue": 1.75,
+          "quality": "market",
+          "sourceName": "Sveriges Riksbank / Trading Economics",
+          "sourceUrl": "https://tradingeconomics.com/sweden/interest-rate",
+          "fetchedAt": "2026-06-16T00:00:00.000Z",
+          "stale": false,
+          "notes": ""
+        },
+        "mortgage": {
+          "productId": "mortgage",
+          "label": "房貸利率",
+          "display": "無資料",
+          "numericValue": null,
+          "quality": "unavailable",
+          "sourceName": "",
+          "sourceUrl": "",
+          "fetchedAt": "",
+          "stale": false,
+          "notes": "尚未設定可靠公開數值。"
+        },
+        "personal_credit": {
+          "productId": "personal_credit",
+          "label": "個人信貸",
+          "display": "無資料",
+          "numericValue": null,
+          "quality": "unavailable",
+          "sourceName": "",
+          "sourceUrl": "",
+          "fetchedAt": "",
+          "stale": false,
+          "notes": "尚未設定可靠公開數值。"
+        },
+        "stock_collateral": {
+          "productId": "stock_collateral",
+          "label": "股票質押 / 融資",
+          "display": "無資料",
+          "numericValue": null,
+          "quality": "unavailable",
+          "sourceName": "",
+          "sourceUrl": "",
+          "fetchedAt": "",
+          "stale": false,
+          "notes": "尚未設定可靠公開數值。"
+        }
+      }
+    },
+    {
+      "regionId": "no",
+      "label": "挪威",
+      "shortLabel": "挪威",
+      "group": "europe",
+      "cells": {
+        "policy_rate": {
+          "productId": "policy_rate",
+          "label": "政策利率",
+          "display": "4.25%",
+          "numericValue": 4.25,
+          "quality": "market",
+          "sourceName": "Norges Bank / Trading Economics",
+          "sourceUrl": "https://tradingeconomics.com/norway/interest-rate",
+          "fetchedAt": "2026-06-16T00:00:00.000Z",
+          "stale": false,
+          "notes": ""
+        },
+        "mortgage": {
+          "productId": "mortgage",
+          "label": "房貸利率",
+          "display": "無資料",
+          "numericValue": null,
+          "quality": "unavailable",
+          "sourceName": "",
+          "sourceUrl": "",
+          "fetchedAt": "",
+          "stale": false,
+          "notes": "尚未設定可靠公開數值。"
+        },
+        "personal_credit": {
+          "productId": "personal_credit",
+          "label": "個人信貸",
+          "display": "無資料",
+          "numericValue": null,
+          "quality": "unavailable",
+          "sourceName": "",
+          "sourceUrl": "",
+          "fetchedAt": "",
+          "stale": false,
+          "notes": "尚未設定可靠公開數值。"
+        },
+        "stock_collateral": {
+          "productId": "stock_collateral",
+          "label": "股票質押 / 融資",
+          "display": "無資料",
+          "numericValue": null,
+          "quality": "unavailable",
+          "sourceName": "",
+          "sourceUrl": "",
+          "fetchedAt": "",
+          "stale": false,
+          "notes": "尚未設定可靠公開數值。"
+        }
+      }
+    },
+    {
+      "regionId": "dk",
+      "label": "丹麥",
+      "shortLabel": "丹麥",
+      "group": "europe",
+      "cells": {
+        "policy_rate": {
+          "productId": "policy_rate",
+          "label": "政策利率",
+          "display": "1.85%",
+          "numericValue": 1.85,
+          "quality": "market",
+          "sourceName": "Danmarks Nationalbank / Trading Economics",
+          "sourceUrl": "https://tradingeconomics.com/denmark/interest-rate",
+          "fetchedAt": "2026-06-16T00:00:00.000Z",
+          "stale": false,
+          "notes": ""
+        },
+        "mortgage": {
+          "productId": "mortgage",
+          "label": "房貸利率",
+          "display": "無資料",
+          "numericValue": null,
+          "quality": "unavailable",
+          "sourceName": "",
+          "sourceUrl": "",
+          "fetchedAt": "",
+          "stale": false,
+          "notes": "尚未設定可靠公開數值。"
+        },
+        "personal_credit": {
+          "productId": "personal_credit",
+          "label": "個人信貸",
+          "display": "無資料",
+          "numericValue": null,
+          "quality": "unavailable",
+          "sourceName": "",
+          "sourceUrl": "",
+          "fetchedAt": "",
+          "stale": false,
+          "notes": "尚未設定可靠公開數值。"
+        },
+        "stock_collateral": {
+          "productId": "stock_collateral",
+          "label": "股票質押 / 融資",
+          "display": "無資料",
+          "numericValue": null,
+          "quality": "unavailable",
+          "sourceName": "",
+          "sourceUrl": "",
+          "fetchedAt": "",
+          "stale": false,
+          "notes": "尚未設定可靠公開數值。"
+        }
+      }
+    }
+  ],
+  "asiaRows": [
+    {
+      "regionId": "jp",
+      "label": "日本",
+      "shortLabel": "日本",
+      "group": "asia",
+      "cells": {
+        "policy_rate": {
+          "productId": "policy_rate",
+          "label": "政策利率",
+          "display": "1.00%",
+          "numericValue": 1,
+          "quality": "official",
+          "sourceName": "Bank of Japan",
+          "sourceUrl": "https://www.boj.or.jp/en/",
+          "fetchedAt": "2026-06-16T00:00:00.000Z",
+          "stale": false,
+          "notes": ""
+        },
+        "mortgage": {
+          "productId": "mortgage",
+          "label": "房貸利率",
+          "display": "0.50-2.50%",
+          "numericValue": null,
+          "quality": "market",
+          "sourceName": "日本住宅金融支援機構 / 銀行房貸來源",
+          "sourceUrl": "https://www.flat35.com/kinri/index.php/rates/top",
+          "fetchedAt": "",
+          "stale": false,
+          "notes": "日本房貸參考區間；浮動與固定、銀行、年期差異很大。"
+        },
+        "personal_credit": {
+          "productId": "personal_credit",
+          "label": "個人信貸",
+          "display": "1.50-15.00%",
+          "numericValue": null,
+          "quality": "manual",
+          "sourceName": "日本銀行與消費金融公開頁",
+          "sourceUrl": "https://www.smbc.co.jp/kojin/money-viva/loan/",
+          "fetchedAt": "",
+          "stale": false,
+          "notes": "日本無擔保貸款通常依信用條件、額度與金融機構而異。"
+        },
+        "stock_collateral": {
+          "productId": "stock_collateral",
+          "label": "股票質押 / 融資",
+          "display": "依券商 margin / 信用取引",
+          "numericValue": null,
+          "quality": "broker",
+          "sourceName": "日本券商信用交易費率",
+          "sourceUrl": "https://www.sbisec.co.jp/",
+          "fetchedAt": "",
+          "stale": false,
+          "notes": "日本股票融資多看信用取引買方金利｜可查券商：SBI、Rakuten、Monex"
+        }
+      }
+    },
+    {
+      "regionId": "cn",
+      "label": "中國",
+      "shortLabel": "中國",
+      "group": "asia",
+      "cells": {
+        "policy_rate": {
+          "productId": "policy_rate",
+          "label": "政策利率",
+          "display": "3.00%",
+          "numericValue": 3,
+          "quality": "official",
+          "sourceName": "People's Bank of China",
+          "sourceUrl": "http://www.pbc.gov.cn/en/",
+          "fetchedAt": "2026-06-16T00:00:00.000Z",
+          "stale": false,
+          "notes": ""
+        },
+        "mortgage": {
+          "productId": "mortgage",
+          "label": "房貸利率",
+          "display": "3.00-4.50%",
+          "numericValue": null,
+          "quality": "market",
+          "sourceName": "中國 LPR / 房貸市場來源",
+          "sourceUrl": "http://www.pbc.gov.cn/en/",
+          "fetchedAt": "",
+          "stale": false,
+          "notes": "中國房貸通常以 LPR 加減點為基礎，各城市與首套/二套利率差異大。"
+        },
+        "personal_credit": {
+          "productId": "personal_credit",
+          "label": "個人信貸",
+          "display": "3.50-18.00%",
+          "numericValue": null,
+          "quality": "manual",
+          "sourceName": "中國銀行與消費信貸公開來源",
+          "sourceUrl": "https://www.boc.cn/",
+          "fetchedAt": "",
+          "stale": false,
+          "notes": "個人信貸依銀行、用途、信用與城市政策差異很大。"
+        },
+        "stock_collateral": {
+          "productId": "stock_collateral",
+          "label": "股票質押 / 融資",
+          "display": "依券商融資融券",
+          "numericValue": null,
+          "quality": "broker",
+          "sourceName": "中國券商融資融券費率",
+          "sourceUrl": "http://www.sse.com.cn/",
+          "fetchedAt": "",
+          "stale": false,
+          "notes": "融資融券利率依券商與標的而異｜可查券商：中信、華泰、國泰君安、招商"
+        }
+      }
+    },
+    {
+      "regionId": "kr",
+      "label": "韓國",
+      "shortLabel": "韓國",
+      "group": "asia",
+      "cells": {
+        "policy_rate": {
+          "productId": "policy_rate",
+          "label": "政策利率",
+          "display": "2.50%",
+          "numericValue": 2.5,
+          "quality": "official",
+          "sourceName": "Bank of Korea",
+          "sourceUrl": "https://www.bok.or.kr/eng/",
+          "fetchedAt": "2026-06-16T00:00:00.000Z",
+          "stale": false,
+          "notes": ""
+        },
+        "mortgage": {
+          "productId": "mortgage",
+          "label": "房貸利率",
+          "display": "3.50-5.50%",
+          "numericValue": null,
+          "quality": "market",
+          "sourceName": "韓國銀行 / 銀行房貸來源",
+          "sourceUrl": "https://www.bok.or.kr/eng/",
+          "fetchedAt": "",
+          "stale": false,
+          "notes": "韓國房貸依固定/浮動、銀行、LTV/DSR 與信用條件不同。"
+        },
+        "personal_credit": {
+          "productId": "personal_credit",
+          "label": "個人信貸",
+          "display": "4.00-15.00%",
+          "numericValue": null,
+          "quality": "manual",
+          "sourceName": "韓國銀行與個人信貸公開來源",
+          "sourceUrl": "https://www.bok.or.kr/eng/",
+          "fetchedAt": "",
+          "stale": false,
+          "notes": "韓國信貸依銀行、信用分數、收入與額度不同。"
+        },
+        "stock_collateral": {
+          "productId": "stock_collateral",
+          "label": "股票質押 / 融資",
+          "display": "依券商 margin loan",
+          "numericValue": null,
+          "quality": "broker",
+          "sourceName": "韓國券商融資費率",
+          "sourceUrl": "https://global.krx.co.kr/",
+          "fetchedAt": "",
+          "stale": false,
+          "notes": "可查券商：Mirae Asset、NH Investment、Samsung Securities、KB Securities"
+        }
+      }
+    },
+    {
+      "regionId": "sg",
+      "label": "新加坡",
+      "shortLabel": "新加坡",
+      "group": "asia",
+      "cells": {
+        "policy_rate": {
+          "productId": "policy_rate",
+          "label": "政策利率",
+          "display": "SORA 約 2.3%",
+          "numericValue": null,
+          "quality": "market",
+          "sourceName": "Monetary Authority of Singapore",
+          "sourceUrl": "https://www.mas.gov.sg/",
+          "fetchedAt": "2026-06-16T00:00:00.000Z",
+          "stale": false,
+          "notes": "新加坡主要使用匯率政策框架，不以單一政策利率作為主要工具；此處以 SORA / 短端市場利率作 proxy。"
+        },
+        "mortgage": {
+          "productId": "mortgage",
+          "label": "房貸利率",
+          "display": "2.30-4.00%",
+          "numericValue": null,
+          "quality": "market",
+          "sourceName": "新加坡銀行房貸來源",
+          "sourceUrl": "https://www.dbs.com.sg/personal/loans/home-loans/default.page",
+          "fetchedAt": "",
+          "stale": false,
+          "notes": "新加坡房貸依固定/浮動、SORA package、銀行與房型不同。"
+        },
+        "personal_credit": {
+          "productId": "personal_credit",
+          "label": "個人信貸",
+          "display": "3.50-12.00%",
+          "numericValue": null,
+          "quality": "manual",
+          "sourceName": "新加坡銀行個人貸款來源",
+          "sourceUrl": "https://www.dbs.com.sg/personal/loans/personal-loans/default.page",
+          "fetchedAt": "",
+          "stale": false,
+          "notes": "新加坡信貸常以 effective interest rate 呈現，需比較 EIR 與手續費。"
+        },
+        "stock_collateral": {
+          "productId": "stock_collateral",
+          "label": "股票質押 / 融資",
+          "display": "依券商 margin financing",
+          "numericValue": null,
+          "quality": "broker",
+          "sourceName": "新加坡券商 margin 費率",
+          "sourceUrl": "https://www.interactivebrokers.com.sg/en/trading/margin-rates.php",
+          "fetchedAt": "",
+          "stale": false,
+          "notes": "可查券商：Interactive Brokers SG、Saxo、DBS Vickers、FSMOne"
+        }
+      }
+    }
+  ]
+}
