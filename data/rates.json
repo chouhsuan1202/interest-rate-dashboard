@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-17T08:55:05.458Z",
+  "generatedAt": "2026-06-18T10:52:01.986Z",
   "productLabels": {
     "policy_rate": "政策利率",
     "mortgage": "房貸利率",
@@ -7,62 +7,6 @@
     "stock_collateral": "股票質押 / 融資"
   },
   "primaryRows": [
-    {
-      "regionId": "us",
-      "label": "美國",
-      "shortLabel": "美國",
-      "group": "primary",
-      "cells": {
-        "policy_rate": {
-          "productId": "policy_rate",
-          "label": "政策利率",
-          "display": "3.75%",
-          "numericValue": 3.75,
-          "quality": "official",
-          "sourceName": "Federal Reserve",
-          "sourceUrl": "https://www.federalreserve.gov/monetarypolicy/openmarket.htm",
-          "fetchedAt": "2026-06-16T00:00:00.000Z",
-          "stale": false,
-          "notes": ""
-        },
-        "mortgage": {
-          "productId": "mortgage",
-          "label": "房貸利率",
-          "display": "6.50-7.50%",
-          "numericValue": null,
-          "quality": "market",
-          "sourceName": "Freddie Mac / 美國房貸市場來源",
-          "sourceUrl": "https://www.freddiemac.com/pmms",
-          "fetchedAt": "",
-          "stale": false,
-          "notes": "美國房貸參考區間；之後接上穩定來源後可自動更新。"
-        },
-        "personal_credit": {
-          "productId": "personal_credit",
-          "label": "個人信貸",
-          "display": "11.40%",
-          "numericValue": 11.4,
-          "quality": "manual",
-          "sourceName": "Federal Reserve 消費信貸資料",
-          "sourceUrl": "https://www.federalreserve.gov/releases/g19/current/",
-          "fetchedAt": "",
-          "stale": false,
-          "notes": "Fed G.19 顯示 2026 Q1 商業銀行 24 個月 personal loans 約 11.40%；實際核貸依信用分數、收入與銀行條件不同。"
-        },
-        "stock_collateral": {
-          "productId": "stock_collateral",
-          "label": "股票質押 / 融資",
-          "display": "IBKR：基準利率 + 2.5% 起",
-          "numericValue": null,
-          "quality": "broker",
-          "sourceName": "券商 margin 費率表",
-          "sourceUrl": "https://www.interactivebrokers.com/en/trading/margin-rates.php",
-          "fetchedAt": "",
-          "stale": false,
-          "notes": "IBKR Lite：benchmark + 2.5%｜IBKR Pro：benchmark + 1.5% 起，金額越大 spread 越低｜可查券商：Interactive Brokers、Charles Schwab、Fidelity"
-        }
-      }
-    },
     {
       "regionId": "euro_nl",
       "label": "荷蘭",
@@ -172,6 +116,62 @@
           "fetchedAt": "",
           "stale": false,
           "notes": "股票質押多為銀行或券商專案報價｜證券融資另看券商融資利率與維持率｜可查券商：元大、凱基、國泰、富邦、永豐"
+        }
+      }
+    },
+    {
+      "regionId": "us",
+      "label": "美國",
+      "shortLabel": "美國",
+      "group": "primary",
+      "cells": {
+        "policy_rate": {
+          "productId": "policy_rate",
+          "label": "政策利率",
+          "display": "3.75%",
+          "numericValue": 3.75,
+          "quality": "official",
+          "sourceName": "Federal Reserve",
+          "sourceUrl": "https://www.federalreserve.gov/monetarypolicy/openmarket.htm",
+          "fetchedAt": "2026-06-16T00:00:00.000Z",
+          "stale": false,
+          "notes": ""
+        },
+        "mortgage": {
+          "productId": "mortgage",
+          "label": "房貸利率",
+          "display": "6.50-7.50%",
+          "numericValue": null,
+          "quality": "market",
+          "sourceName": "Freddie Mac / 美國房貸市場來源",
+          "sourceUrl": "https://www.freddiemac.com/pmms",
+          "fetchedAt": "",
+          "stale": false,
+          "notes": "美國房貸參考區間；之後接上穩定來源後可自動更新。"
+        },
+        "personal_credit": {
+          "productId": "personal_credit",
+          "label": "個人信貸",
+          "display": "11.40%",
+          "numericValue": 11.4,
+          "quality": "manual",
+          "sourceName": "Federal Reserve 消費信貸資料",
+          "sourceUrl": "https://www.federalreserve.gov/releases/g19/current/",
+          "fetchedAt": "",
+          "stale": false,
+          "notes": "Fed G.19 顯示 2026 Q1 商業銀行 24 個月 personal loans 約 11.40%；實際核貸依信用分數、收入與銀行條件不同。"
+        },
+        "stock_collateral": {
+          "productId": "stock_collateral",
+          "label": "股票質押 / 融資",
+          "display": "IBKR：基準利率 + 2.5% 起",
+          "numericValue": null,
+          "quality": "broker",
+          "sourceName": "券商 margin 費率表",
+          "sourceUrl": "https://www.interactivebrokers.com/en/trading/margin-rates.php",
+          "fetchedAt": "",
+          "stale": false,
+          "notes": "IBKR Lite：benchmark + 2.5%｜IBKR Pro：benchmark + 1.5% 起，金額越大 spread 越低｜可查券商：Interactive Brokers、Charles Schwab、Fidelity"
         }
       }
     }
