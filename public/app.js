@@ -1,6 +1,7 @@
 const PRODUCT_ORDER = ["policy_rate", "mortgage", "personal_credit", "stock_collateral"];
 const SNAPSHOT_CACHE_KEY = "interest-rate-dashboard.snapshot";
 const LANG_CACHE_KEY = "interest-rate-dashboard.language";
+const DATA_VERSION = "20260618-primary-order";
 const CHART_SERIES = [
   { label: "美國", aliases: ["us"], color: "#0f5f8f" },
   { label: "荷蘭", aliases: ["euro_nl", "euro"], color: "#2f6f65" },
@@ -810,7 +811,8 @@ function writeCachedSnapshot(snapshot, storage) {
 }
 
 async function fetchJson(path) {
-  const response = await fetch(path, { cache: "no-store" });
+  const separator = path.includes("?") ? "&" : "?";
+  const response = await fetch(`${path}${separator}v=${DATA_VERSION}`, { cache: "no-store" });
   if (!response.ok) {
     const fileName = path.split("/").at(-1) || path;
     throw new Error(`${fileName} ${response.status}`);

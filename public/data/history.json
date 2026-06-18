@@ -627,5 +627,22 @@
         "value": 2
       }
     ]
+  },
+  {
+    "observedAt": "2026-06-16T00:00:00.000Z",
+    "rates": [
+      {
+        "regionId": "euro_nl",
+        "value": 2.4
+      },
+      {
+        "regionId": "tw",
+        "value": 2
+      },
+      {
+        "regionId": "us",
+        "value": 3.75
+      }
+    ]
   }
 ]
