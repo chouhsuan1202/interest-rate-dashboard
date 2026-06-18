@@ -1,7 +1,7 @@
 export const REGIONS = [
-  { id: "us", label: "美國", shortLabel: "美國", group: "primary", policyRateKey: "us" },
   { id: "euro_nl", label: "荷蘭", shortLabel: "荷蘭", group: "primary", policyRateKey: "euro" },
   { id: "tw", label: "台灣", shortLabel: "台灣", group: "primary", policyRateKey: "tw" },
+  { id: "us", label: "美國", shortLabel: "美國", group: "primary", policyRateKey: "us" },
   { id: "jp", label: "日本", shortLabel: "日本", group: "asia", policyRateKey: "jp" },
   { id: "cn", label: "中國", shortLabel: "中國", group: "asia", policyRateKey: "cn" },
   { id: "kr", label: "韓國", shortLabel: "韓國", group: "asia", policyRateKey: "kr" },

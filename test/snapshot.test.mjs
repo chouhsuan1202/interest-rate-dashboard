@@ -50,7 +50,10 @@ test("builds primary and asia sections", () => {
   assert.equal(snapshot.primaryRows.length, 3);
   assert.equal(snapshot.europeRows.length, 13);
   assert.equal(snapshot.asiaRows.length, 4);
-  assert.equal(snapshot.primaryRows[0].regionId, "us");
+  assert.deepEqual(
+    snapshot.primaryRows.map((row) => row.regionId),
+    ["euro_nl", "tw", "us"]
+  );
 });
 
 test("includes policy and manual borrowing cells with source links", () => {

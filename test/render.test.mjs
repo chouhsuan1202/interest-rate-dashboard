@@ -156,7 +156,7 @@ test("renders trend chart svg with legend text", () => {
 test("keeps the final chart date from colliding with the previous month label", () => {
   const svg = buildChartSvg(buildChartModel(historyFixture, "zh"), "zh");
 
-  assert.match(svg, /6月17日/);
+  assert.match(svg, /6月16日/);
   assert.doesNotMatch(svg, /5月1日/);
 });
 
